@@ -21,12 +21,12 @@ public class InventarioDTO {
 		setStatus(status);
 		
 	}
-	public static AreaDTO create(UUID id, String nombre) {
-		return new AreaDTO(id,nombre);
+	public static InventarioDTO create(UUID id, String nombre) {
+		return new InventarioDTO(id, nombre, 0, true);
 	}
 	
-	public static final AreaDTO create(String id, String nombre){
-		return new AreaDTO(getUUIDFromString(id), nombre);
+	public static final InventarioDTO create(String id, String nombre){
+		return new InventarioDTO(getUUIDFromString(id), nombre, 0, true);
 	}
 	
 	public UUID getId() {
