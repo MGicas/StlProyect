@@ -7,7 +7,7 @@ import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDFromString;
 import java.util.Date;
 import java.util.UUID;
 
-public class ObservacionDTO {
+public class ObservationDTO {
 
 	private UUID id;
 	private boolean returnComplete;
@@ -15,17 +15,17 @@ public class ObservacionDTO {
 	private String description;
 	private boolean returnOnTime;
 	
-	public ObservacionDTO(final UUID id, final boolean returnComplete, final Date loanExtencion, final String description, final boolean returnOnTime) {
+	public ObservationDTO(final UUID id, final boolean returnComplete, final Date loanExtencion, final String description, final boolean returnOnTime) {
 		setId(getDefaultUUID(getId()));
 		setReturnComplete(returnComplete);
 		
 	}
-	public static ObservacionDTO create(UUID id, boolean returnComplete, Date loanExtencion, String description,boolean returnOnTime) {
-		return new ObservacionDTO(id,returnComplete,loanExtencion,description,returnOnTime);
+	public static ObservationDTO create(UUID id, boolean returnComplete, Date loanExtencion, String description,boolean returnOnTime) {
+		return new ObservationDTO(id,returnComplete,loanExtencion,description,returnOnTime);
 	}
 	
-	public static final ObservacionDTO create(String id, boolean returnComplete, Date loanExtencion, String description,boolean returnOnTime){
-		return new ObservacionDTO(getUUIDFromString(id), returnComplete,loanExtencion,description,returnOnTime);
+	public static final ObservationDTO create(String id, boolean returnComplete, Date loanExtencion, String description,boolean returnOnTime){
+		return new ObservationDTO(getUUIDFromString(id), returnComplete,loanExtencion,description,returnOnTime);
 	}
 	
 	public final void setId(final UUID id) {

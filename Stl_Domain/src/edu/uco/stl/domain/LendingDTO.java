@@ -7,7 +7,7 @@ import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDFromString;
 import java.util.Date;
 import java.util.UUID;
 
-public class PrestamoDTO {
+public class LendingDTO {
 	
 	private UUID id;
 	private String product;
@@ -17,7 +17,7 @@ public class PrestamoDTO {
 	private String monitorGive;
 	private String lenderName;
 	
-	public PrestamoDTO(UUID id, String product, int loanQuantity, java.util.Date date, String monitorRecieve, String monitorGive,
+	public LendingDTO(UUID id, String product, int loanQuantity, java.util.Date date, String monitorRecieve, String monitorGive,
 			String lenderName) {
 		
 		setId(getDefaultUUID(getId()));
@@ -29,14 +29,14 @@ public class PrestamoDTO {
 		setLenderName(lenderName);
 	}
 
-	public static PrestamoDTO create(UUID id, String product, int loanQuantity, java.util.Date date, String monitorRecieve, String monitorGive,
+	public static LendingDTO create(UUID id, String product, int loanQuantity, java.util.Date date, String monitorRecieve, String monitorGive,
 			String lenderName) {
-		return new PrestamoDTO(id, product, loanQuantity, date, monitorRecieve, monitorGive, lenderName);
+		return new LendingDTO(id, product, loanQuantity, date, monitorRecieve, monitorGive, lenderName);
 	}
 	
-	public static final PrestamoDTO create (String id, String product, int loanQuantity, java.util.Date date, String monitorRecieve, String monitorGive,
+	public static final LendingDTO create (String id, String product, int loanQuantity, java.util.Date date, String monitorRecieve, String monitorGive,
 			String lenderName) {
-		return new PrestamoDTO(getUUIDFromString(id), product, loanQuantity, date, monitorRecieve, monitorGive, lenderName);
+		return new LendingDTO(getUUIDFromString(id), product, loanQuantity, date, monitorRecieve, monitorGive, lenderName);
 	}
 
 	public final void setId(UUID id) {

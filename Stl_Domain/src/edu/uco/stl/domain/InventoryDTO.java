@@ -6,7 +6,7 @@ import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDFromString;
 
 import java.util.UUID;
 
-public class InventarioDTO {
+public class InventoryDTO {
 
 	private UUID id;
 	private String nombre;
@@ -14,19 +14,19 @@ public class InventarioDTO {
 	private boolean status;
 	
 	
-	public InventarioDTO(final UUID id, final String nombre, final int productQuantity,final boolean status) {
+	public InventoryDTO(final UUID id, final String nombre, final int productQuantity,final boolean status) {
 		setId(getDefaultUUID(getId()));
 		setNombre(nombre);
 		setProductQuantity(productQuantity);
 		setStatus(status);
 		
 	}
-	public static InventarioDTO create(UUID id, String nombre) {
-		return new InventarioDTO(id, nombre, 0, true);
+	public static InventoryDTO create(UUID id, String nombre,int productQuantity, boolean status) {
+		return new InventoryDTO(id, nombre, 0, true);
 	}
 	
-	public static final InventarioDTO create(String id, String nombre){
-		return new InventarioDTO(getUUIDFromString(id), nombre, 0, true);
+	public static final InventoryDTO create(String id, String nombre,int productQuantity, boolean status){
+		return new InventoryDTO(getUUIDFromString(id), nombre, 0, true);
 	}
 	
 	public UUID getId() {

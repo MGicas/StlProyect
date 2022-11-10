@@ -6,7 +6,7 @@ import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDFromString;
 
 import java.util.UUID;
 
-public class AdministratorDTO {
+public class AdminDTO {
 
 	private UUID id;
 	private String identification;
@@ -15,7 +15,7 @@ public class AdministratorDTO {
 	private String firstSurname;
 	private String secondSurname;
 	
-	private AdministratorDTO(final UUID id, final String identification, final String firstName, final String secondName, final String firstSurname, final String secondSurname){
+	private AdminDTO(final UUID id, final String identification, final String firstName, final String secondName, final String firstSurname, final String secondSurname){
 		setId(getDefaultUUID(getId()));
 		setIdentification(identification);
 		setFirstname(firstName);
@@ -24,12 +24,12 @@ public class AdministratorDTO {
 		setSecondSurname(secondSurname);
 	}
 	
-	public static AdministratorDTO create(UUID id, String identification, String firstName, String secondName, String firstSurname, String secondSurname) {
-		return new AdministratorDTO(id, identification, firstName, secondName, firstSurname, secondSurname);
+	public static AdminDTO create(UUID id, String identification, String firstName, String secondName, String firstSurname, String secondSurname) {
+		return new AdminDTO(id, identification, firstName, secondName, firstSurname, secondSurname);
 	}
 	
-	public static final AdministratorDTO create(String id, String identification, String firstName, String secondName, String firstSurname, String secondSurname) {
-		return new AdministratorDTO(getUUIDFromString(id), identification, firstName, secondName, firstName, secondSurname);
+	public static final AdminDTO create(String id, String identification, String firstName, String secondName, String firstSurname, String secondSurname) {
+		return new AdminDTO(getUUIDFromString(id), identification, firstName, secondName, firstName, secondSurname);
 	}
 	
 	public final void setId(final UUID id) {

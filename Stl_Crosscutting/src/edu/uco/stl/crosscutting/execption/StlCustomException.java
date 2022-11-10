@@ -6,8 +6,9 @@ import static edu.uco.stl.crosscutting.helper.ObjectHelper.getDefaultIfNull;
 import static edu.uco.stl.crosscutting.helper.ObjectHelper.isNull;;
 
 public class StlCustomException extends RuntimeException{
+
+	private static final long serialVersionUID = 7151753075692579966L;
 	
-	private static final long serialVersionUID = 1L;
     private String userMessage; 
     private  LayerException layer;
     
@@ -33,4 +34,5 @@ public class StlCustomException extends RuntimeException{
 	public final boolean isTechinalException() {
         return isNull(getUserMessage());
     }
+	
 }

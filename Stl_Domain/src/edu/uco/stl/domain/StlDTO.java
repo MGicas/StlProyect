@@ -7,22 +7,22 @@ public class StlDTO {
 	
 	private UUID id;
 	private MonitorDTO person;
-	private AdministratorDTO admin;
+	private AdminDTO admin;
 	private AreaDTO area;
-	private EmpresaDTO empresa;
-	private InventarioDTO inventario;
+	private CompanyDTO empresa;
+	private InventoryDTO inventario;
 	private LenderDTO lender;
-	private ObservacionDTO observation;
-	private ProductoDTO product;
-	private PrestamoDTO loan;
+	private ObservationDTO observation;
+	private ProductDTO product;
+	private LendingDTO loan;
 	
 	public StlDTO() {
 		setId(getNewUUID());
 	}
 	
-	public StlDTO(final UUID id,final MonitorDTO person, final AdministratorDTO admin,final AreaDTO area, final EmpresaDTO empresa,
-			final InventarioDTO inventario, final LenderDTO lender, final ObservacionDTO observation,final ProductoDTO product,
-			final PrestamoDTO loan) {
+	public StlDTO(final UUID id,final MonitorDTO person, final AdminDTO admin,final AreaDTO area, final CompanyDTO empresa,
+			final InventoryDTO inventario, final LenderDTO lender, final ObservationDTO observation,final ProductDTO product,
+			final LendingDTO loan) {
 		setId(getDefaultUUID(getId()));
 		setPerson(person);
 		setAdmin(admin);
@@ -35,15 +35,15 @@ public class StlDTO {
 		setLoan(loan);
 	}
 	
-	public static final StlDTO create(UUID id, MonitorDTO person, AdministratorDTO admin, AreaDTO area, EmpresaDTO empresa,
-			InventarioDTO inventario, LenderDTO lender, ObservacionDTO observation, ProductoDTO product,
-			PrestamoDTO loan) {
+	public static final StlDTO create(UUID id, MonitorDTO person, AdminDTO admin, AreaDTO area, CompanyDTO empresa,
+			InventoryDTO inventario, LenderDTO lender, ObservationDTO observation, ProductDTO product,
+			LendingDTO loan) {
 		return new StlDTO(id, person, admin, area, empresa, inventario, lender, observation, product, loan);
 	}
 	
-	public static final StlDTO create(String id, MonitorDTO person, AdministratorDTO admin, AreaDTO area, EmpresaDTO empresa,
-			InventarioDTO inventario, LenderDTO lender, ObservacionDTO observation, ProductoDTO product,
-			PrestamoDTO loan) {
+	public static final StlDTO create(String id, MonitorDTO person, AdminDTO admin, AreaDTO area, CompanyDTO empresa,
+			InventoryDTO inventario, LenderDTO lender, ObservationDTO observation, ProductDTO product,
+			LendingDTO loan) {
 		return new StlDTO(getNewUUID(), person, admin, area, empresa, inventario, lender, observation, product, loan);
 	}
 	
@@ -53,28 +53,28 @@ public class StlDTO {
 	public final void setPerson(MonitorDTO person) {
 		this.person = person;
 	}
-	public final void setAdmin(AdministratorDTO admin) {
+	public final void setAdmin(AdminDTO admin) {
 		this.admin = admin;
 	}
 	public final void setArea(AreaDTO area) {
 		this.area = area;
 	}
-	public final void setEmpresa(EmpresaDTO empresa) {
+	public final void setEmpresa(CompanyDTO empresa) {
 		this.empresa = empresa;
 	}
-	public final void setInventario(InventarioDTO inventario) {
+	public final void setInventario(InventoryDTO inventario) {
 		this.inventario = inventario;
 	}
 	public final void setLender(LenderDTO lender) {
 		this.lender = lender;
 	}
-	public final void setObservation(ObservacionDTO observation) {
+	public final void setObservation(ObservationDTO observation) {
 		this.observation = observation;
 	}
-	public final void setProduct(ProductoDTO product) {
+	public final void setProduct(ProductDTO product) {
 		this.product = product;
 	}
-	public final void setLoan(PrestamoDTO loan) {
+	public final void setLoan(LendingDTO loan) {
 		this.loan = loan;
 	}
 	
@@ -84,28 +84,28 @@ public class StlDTO {
 	public MonitorDTO getPerson() {
 		return person;
 	}
-	public AdministratorDTO getAdmin() {
+	public AdminDTO getAdmin() {
 		return admin;
 	}
 	public AreaDTO getArea() {
 		return area;
 	}
-	public EmpresaDTO getEmpresa() {
+	public CompanyDTO getEmpresa() {
 		return empresa;
 	}
-	public InventarioDTO getInventario() {
+	public InventoryDTO getInventario() {
 		return inventario;
 	}
 	public LenderDTO getLender() {
 		return lender;
 	}
-	public ObservacionDTO getObservation() {
+	public ObservationDTO getObservation() {
 		return observation;
 	}
-	public ProductoDTO getProduct() {
+	public ProductDTO getProduct() {
 		return product;
 	}
-	public PrestamoDTO getLoan() {
+	public LendingDTO getLoan() {
 		return loan;
 	}
 	

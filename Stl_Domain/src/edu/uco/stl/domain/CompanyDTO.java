@@ -6,22 +6,22 @@ import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDFromString;
 
 import java.util.UUID;
 
-public class EmpresaDTO {
+public class CompanyDTO {
 	
 	private UUID id;
 	private String nombre;
 	
 	
-	public EmpresaDTO(final UUID id, final String nombre) {
+	public CompanyDTO(final UUID id, final String nombre) {
 		setId(getDefaultUUID(getId()));
 		setNombre(nombre);
 	}
-	public static EmpresaDTO create(UUID id, String nombre) {
-		return new EmpresaDTO(id,nombre);
+	public static CompanyDTO create(UUID id, String nombre) {
+		return new CompanyDTO(id,nombre);
 	}
 	
-	public static final EmpresaDTO create(String id, String nombre){
-		return new EmpresaDTO(getUUIDFromString(id), nombre);
+	public static final CompanyDTO create(String id, String nombre){
+		return new CompanyDTO(getUUIDFromString(id), nombre);
 	}
 	
 	public UUID getId() {
