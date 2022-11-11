@@ -1,5 +1,4 @@
 # StlProyect
-Stocktaking load 
 
 # STOCKTACKING LOAD
 
