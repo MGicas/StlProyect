@@ -17,7 +17,7 @@ public class Messages {
 		public static final String TECHNICAL_MARIADB_NOT_IMPLEMENTED = "DAOFactory Mariadb is not implemented yet";
 		public static final String TECHNICAL_ORACLE_NOT_IMPLEMENTED = "DAOFactory Oracle is not implemented yet";
 		public static final String TECHNICAL_POSTGRESQL_NOT_IMPLEMENTED = "DAOFactory Postgresql is not implemented yet";
-		public static final String TECHNICAL_MYSQL_NOT_IMPLEMENTED = "DAOFactory Mysql is not implemented yet";
+		public static final String TECHNICAL_SQL_NOT_IMPLEMENTED = "DAOFactory Sql is not implemented yet";
 		public static final String TECHNICAL_UNEXPECTED_DAOFACTORY = "Unexpected DAOFactor is not implemented yet";
 
 	}
