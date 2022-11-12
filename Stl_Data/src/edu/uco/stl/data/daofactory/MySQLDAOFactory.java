@@ -1,5 +1,7 @@
 package edu.uco.stl.data.daofactory;
 
+import java.sql.Connection;
+
 import edu.uco.stl.data.dao.AdminDAO;
 import edu.uco.stl.data.dao.AreaDAO;
 import edu.uco.stl.data.dao.CompanyDAO;
@@ -12,6 +14,12 @@ import edu.uco.stl.data.dao.ProductDAO;
 import edu.uco.stl.data.dao.StlDAO;
 
 final class MySQLDAOFactory extends DAOFactory {
+	
+	private Connection connection;
+	
+	 public MySQLDAOFactory(){
+	        openConnection();
+	    }
 
 	@Override
 	protected void openConnection() {
