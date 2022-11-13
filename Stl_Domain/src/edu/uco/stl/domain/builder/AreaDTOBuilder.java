@@ -7,7 +7,7 @@ import edu.uco.stl.domain.AreaDTO;
 public class AreaDTOBuilder {
 	
 	private UUID id;
-	private String nombre;
+	private String name;
 	
 	private AreaDTOBuilder() {
 		super();
@@ -22,13 +22,13 @@ public class AreaDTOBuilder {
 		return this;
 	}
 
-	public AreaDTOBuilder setNombre(String nombre) {
-		this.nombre = nombre;
+	public AreaDTOBuilder setName(String name) {
+		this.name = name;
 		return this;
 	}
 	
 	public final AreaDTO build() {
-		return AreaDTO.create(id, nombre);
+		return AreaDTO.create(id, name);
 	}
 
 }

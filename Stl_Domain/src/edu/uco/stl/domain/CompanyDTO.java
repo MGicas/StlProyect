@@ -9,19 +9,19 @@ import java.util.UUID;
 public class CompanyDTO {
 	
 	private UUID id;
-	private String nombre;
+	private String name;
 	
 	
-	public CompanyDTO(final UUID id, final String nombre) {
+	public CompanyDTO(final UUID id, final String name) {
 		setId(getDefaultUUID(getId()));
-		setNombre(nombre);
+		setName(name);
 	}
-	public static CompanyDTO create(UUID id, String nombre) {
-		return new CompanyDTO(id,nombre);
+	public static CompanyDTO create(UUID id, String name) {
+		return new CompanyDTO(id,name);
 	}
 	
-	public static final CompanyDTO create(String id, String nombre){
-		return new CompanyDTO(getUUIDFromString(id), nombre);
+	public static final CompanyDTO create(String id, String name){
+		return new CompanyDTO(getUUIDFromString(id), name);
 	}
 	
 	public UUID getId() {
@@ -30,11 +30,11 @@ public class CompanyDTO {
 	public final void setId(final UUID id) {
 		this.id = getDefaultUUID(id);
 	}
-	public String getNombre() {
-		return nombre;
+	public String getName() {
+		return name;
 	}
-	public final void setNombre(final String nombre) {
-		this.nombre = (nombre == null)? " " : nombre.trim();
+	public final void setName(final String name) {
+		this.name = (name == null)? " " : name.trim();
 	}
 	
 	public final String getIDAsString() {

@@ -87,6 +87,17 @@ public class Messages {
 		
 		public static final String TECHNICAL_PROBLEM_UPDATE_ADMIN = "There was a problem trying to update admin";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_ADMIN = "There was an unexpected problem trying to update admin";
+		
+		
+		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_ADMIN = "There was a problem trying to prepare and execute query of an admin";
+		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_ADMIN = "There was a problem trying to setting parameters values of an admin";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_ADMIN = "There was an unexpected problem trying to setting parameters values of an admin";
+		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_ADMIN = "There was a problem trying to execute query of an admin";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_EXECUTING_QUERY_ADMIN = "There was an unexpected problem trying to execute query of an admin";
+		public static final String TECHNICAL_PROBLEM_FILLING_RESULTS_ADMIN = "There was a problem trying to fill results of an admin";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_ADMIN = "There was an unexpected problem trying to execute query of an admin";
+		public static final String TECHNICAL_PROBLEM_FILLING_ADMINDTO_ADMIN = "There was a problem trying to fill areaDTO of an admin";
+
 
 	}
 
@@ -99,6 +110,15 @@ public class Messages {
 		public static final String TECHNICAL_PROBLEM_CREATE_AREA = "There was a problem trying to create an area";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_AREA = "There was an unexpected problem trying to create an area";
 
+		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_AREA = "There was a problem trying to prepare and execute query of an area";
+		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_AREA = "There was a problem trying to setting parameters values of an area";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_AREA = "There was an unexpected problem trying to setting parameters values of an area";
+		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_AREA = "There was a problem trying to execute query of an area";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_EXECUTING_QUERY_AREA = "There was an unexpected problem trying to execute query of an area";
+		public static final String TECHNICAL_PROBLEM_FILLING_RESULTS_AREA = "There was a problem trying to fill results of an area";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_AREA = "There was an unexpected problem trying to execute query of an area";
+		public static final String TECHNICAL_PROBLEM_FILLING_AREADTO_AREA = "There was a problem trying to fill areaDTO of an area";
+
 	}
 	
 	public static class CompanyMySQLDAO {
@@ -109,6 +129,18 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_CREATE_COMPANY = "There was a problem trying to create a company";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_COMPANY = "There was an unexpected problem trying to create a company";
+
+		public static final String TECHNICAL_PROBLEM_UPDATE_COMPANY = "There was a problem trying to update company";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_COMPANY = "There was an unexpected problem trying to update company";
+		
+		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_COMPANY = "There was a problem trying to prepare and execute query of an company";
+		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_COMPANY = "There was a problem trying to setting parameters values of an company";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_COMPANY = "There was an unexpected problem trying to setting parameters values of an company";
+		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_COMPANY = "There was a problem trying to execute query of an company";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_EXECUTING_QUERY_COMPANY = "There was an unexpected problem trying to execute query of an company";
+		public static final String TECHNICAL_PROBLEM_FILLING_RESULTS_COMPANY = "There was a problem trying to fill results of an company";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_COMPANY = "There was an unexpected problem trying to execute query of an company";
+		public static final String TECHNICAL_PROBLEM_FILLING_COMPANYDTO_COMPANY = "There was a problem trying to fill areaDTO of an company";
 
 	}
 	
