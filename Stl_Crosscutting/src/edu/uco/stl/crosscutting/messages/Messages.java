@@ -32,9 +32,9 @@ public class Messages {
 
 	}
 
-	public static class SqlConnectionHelper {
+	public static class MySQLConnectionHelper {
 
-		private SqlConnectionHelper() {
+		private MySQLConnectionHelper() {
 			super();
 		}
 
@@ -54,14 +54,17 @@ public class Messages {
 		public static final String TECHNICAL_PROBLEM_CONFIRM_TRANSACTION = "There was a problem trying to confirm trasaction with the current connection in SQLServerDAOFactory";
 	}
 
-	public static class SqlServerFactory {
+	public static class MySqlFactory {
 
-		private SqlServerFactory() {
+		private MySqlFactory() {
 			super();
 		}
 
-		public static final String TECHNICAL_CONNECTION_IS_CLOSED_FOR_INIT_TRANSACTION = "Connection is already closed";
-
+		public static final String TECHNICAL_CONNECTION_IS_CLOSED_FOR_INIT_TRANSACTION = "There was a problem trying to init transaction with the connection in MySqlDAOFactory";
+		public static final String TECHNICAL_CONNECTION_CLOSE_CONNECTION = "There was a problem trying to close connection with the current connection in MySqlDAOFactory";
+	    public static final String TECHNICAL_CONNECTION_CONFIRM_TRANSACTION = "There was a problem trying to confirm trasaction with the current connection in MySqlDAOFactory";
+	    public static final String TECHNICAL_CONNECTION_CONNECT_DATABASE = "There was a problem trying to connect to Data base ";
+	    public static final String TECHNICAL_CONNECTION_ROLLBACK_TRANSACTION = "There was a problem trying to rollback transaction";
 	}
 
 	public static class UUIDHelper {
@@ -72,15 +75,117 @@ public class Messages {
 		public static final String TECHNICAL_UUID_FROM_STRING_INVALID = "The UUID to convert doesn't have a correct format";
 		public static final String TECHNICAL_UUID_FROM_STRING_UNEXPECTED_ERROR = "There was an unexpected error";
 	}
+	
+	public static class AdminMySQLDAO {
 
-	public static class BudgetSqlServerDAO {
-
-		private BudgetSqlServerDAO() {
+		private AdminMySQLDAO() {
 			super();
 		}
 
-		public static final String TECHNICAL_PROBLEM_CREATE_BUDGET = "Connection is already closed";
-		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_BUDGET = "Connection is already closed";
+		public static final String TECHNICAL_PROBLEM_CREATE_ADMIN = "There was a problem trying to create an admin";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_ADMIN = "There was an unexpected problem trying to create an admin";
+		
+		public static final String TECHNICAL_PROBLEM_UPDATE_ADMIN = "There was a problem trying to update admin";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_ADMIN = "There was an unexpected problem trying to update admin";
+
+	}
+
+	public static class AreaMySQLDAO {
+
+		private AreaMySQLDAO() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_CREATE_AREA = "There was a problem trying to create an area";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_AREA = "There was an unexpected problem trying to create an area";
+
+	}
+	
+	public static class CompanyMySQLDAO {
+
+		private CompanyMySQLDAO() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_CREATE_COMPANY = "There was a problem trying to create a company";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_COMPANY = "There was an unexpected problem trying to create a company";
+
+	}
+	
+	public static class InventoryMySQLDAO {
+
+		private InventoryMySQLDAO() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_CREATE_INVENTORY = "There was a problem trying to create a inventory";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_INVENTORY = "There was an unexpected problem trying to create a inventory";
+
+	}
+	
+	public static class LenderMySQLDAO {
+
+		private LenderMySQLDAO() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_CREATE_LENDER = "There was a problem trying to create a lender";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_LENDER = "There was an unexpected problem trying to create a lender";
+
+	}
+	
+	public static class LendingMySQLDAO {
+
+		private LendingMySQLDAO() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_CREATE_LENDING = "There was a problem trying to create a lending";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_LENDING = "There was an unexpected problem trying to create a lending";
+
+	}
+	
+	public static class MonitorMySQLDAO {
+
+		private MonitorMySQLDAO() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_CREATE_MONITOR = "There was a problem trying to create a monitor";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_MONITOR = "There was an unexpected problem trying to create a monitor";
+
+	}
+	
+	public static class ObservationMySQLDAO {
+
+		private ObservationMySQLDAO() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_CREATE_OBSERVATION = "There was a problem trying to create a observation";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_OBSERVATION = "There was an unexpected problem trying to create an observation";
+
+	}
+	
+	public static class ProductMySQLDAO {
+
+		private ProductMySQLDAO() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_CREATE_PRODUCT = "There was a problem trying to create a product";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_PRODUCT = "There was an unexpected problem trying to create a product";
+
+	}
+	
+	public static class StlMySQLDAO {
+
+		private StlMySQLDAO() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_CREATE_STL = "There was a problem trying to create a stl";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_STL = "There was an unexpected problem trying to create a stl";
 
 	}
 }
