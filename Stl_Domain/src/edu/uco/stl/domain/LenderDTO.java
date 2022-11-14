@@ -3,7 +3,8 @@ package edu.uco.stl.domain;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getDefaultUUID;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDAsString;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDFromString;
-
+import static edu.uco.stl.crosscutting.helper.NumberHelper.ZERO;
+import static edu.uco.stl.crosscutting.helper.StringHelper.EMPTY;
 import java.util.UUID;
 
 public class LenderDTO {
@@ -21,6 +22,19 @@ public class LenderDTO {
 	private String mail;
 	
 	
+	public LenderDTO() {
+		setId(getDefaultUUID(getId()));
+		setIdentification(EMPTY);
+		setFirstname(EMPTY);
+		setSecondName(EMPTY);
+		setFirstSurname(EMPTY);
+		setSecondSurname(EMPTY);
+		setCity(EMPTY);
+		setNeighborhood(EMPTY);
+		setAddress(EMPTY);
+		setPhone(ZERO);
+		setMail(EMPTY);
+	}
 	
 	public LenderDTO(UUID id, String identification, String firstName, String secondName, String firstSurname,
 			String secondSurname, String city, String neighborhood, String address, int phone, String mail) {

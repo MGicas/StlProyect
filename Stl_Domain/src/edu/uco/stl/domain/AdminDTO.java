@@ -3,6 +3,7 @@ package edu.uco.stl.domain;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getDefaultUUID;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDAsString;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDFromString;
+import static edu.uco.stl.crosscutting.helper.StringHelper.EMPTY;
 
 import java.util.UUID;
 
@@ -15,7 +16,16 @@ public class AdminDTO {
 	private String firstSurname;
 	private String secondSurname;
 	
-	private AdminDTO(final UUID id, final String identification, final String firstName, final String secondName, final String firstSurname, final String secondSurname){
+	public AdminDTO(){
+		setId(getDefaultUUID(getId()));
+		setIdentification(EMPTY);
+		setFirstname(EMPTY);
+		setSecondName(EMPTY);
+		setFirstSurname(EMPTY);
+		setSecondSurname(EMPTY);
+	}
+	
+	public AdminDTO(final UUID id, final String identification, final String firstName, final String secondName, final String firstSurname, final String secondSurname){
 		setId(getDefaultUUID(getId()));
 		setIdentification(identification);
 		setFirstname(firstName);

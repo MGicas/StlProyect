@@ -3,6 +3,7 @@ package edu.uco.stl.domain;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getDefaultUUID;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDAsString;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDFromString;
+import static edu.uco.stl.crosscutting.helper.StringHelper.EMPTY;
 
 import java.util.UUID;
 
@@ -12,6 +13,11 @@ public class ProductDTO {
 	private String name;
 	private String description;
 	
+	public ProductDTO() {
+		setId(getDefaultUUID(getId()));
+		setName(EMPTY);
+		setDescription(EMPTY);
+	}
 	
 	public ProductDTO(final UUID id, final String name, final String description) {
 		setId(getDefaultUUID(getId()));

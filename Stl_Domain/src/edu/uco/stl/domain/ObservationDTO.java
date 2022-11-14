@@ -3,7 +3,7 @@ package edu.uco.stl.domain;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getDefaultUUID;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDAsString;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDFromString;
-
+import static edu.uco.stl.crosscutting.helper.StringHelper.EMPTY;
 import java.util.Date;
 import java.util.UUID;
 
@@ -15,9 +15,22 @@ public class ObservationDTO {
 	private String description;
 	private boolean returnOnTime;
 	
+	public ObservationDTO() {
+		setId(getDefaultUUID(getId()));
+		setReturnComplete(true);
+		setDescription(EMPTY);
+		setLoanExtencion(loanExtencion);
+		setReturnOnTime(true);
+		
+		
+	}
+	
 	public ObservationDTO(final UUID id, final boolean returnComplete, final Date loanExtencion, final String description, final boolean returnOnTime) {
 		setId(getDefaultUUID(getId()));
 		setReturnComplete(returnComplete);
+		setDescription(description);
+		setLoanExtencion(loanExtencion);
+		setReturnOnTime(returnOnTime);
 		
 	}
 	public static ObservationDTO create(UUID id, boolean returnComplete, Date loanExtencion, String description,boolean returnOnTime) {

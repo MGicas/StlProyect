@@ -3,11 +3,13 @@ package edu.uco.stl.domain.builder;
 import java.util.UUID;
 
 import edu.uco.stl.domain.AreaDTO;
+import edu.uco.stl.domain.CompanyDTO;
 
 public class AreaDTOBuilder {
 	
 	private UUID id;
 	private String name;
+	private CompanyDTO idCompany;
 	
 	private AreaDTOBuilder() {
 		super();
@@ -27,8 +29,12 @@ public class AreaDTOBuilder {
 		return this;
 	}
 	
+	public void setIdCompany(CompanyDTO idCompany) {
+		this.idCompany = idCompany;
+	}
+
 	public final AreaDTO build() {
-		return AreaDTO.create(id, name);
+		return AreaDTO.create(id, name,idCompany);
 	}
 
 }

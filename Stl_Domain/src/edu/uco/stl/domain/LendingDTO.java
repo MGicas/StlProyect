@@ -3,7 +3,8 @@ package edu.uco.stl.domain;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getDefaultUUID;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDAsString;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDFromString;
-
+import static edu.uco.stl.crosscutting.helper.NumberHelper.ZERO;
+import static edu.uco.stl.crosscutting.helper.StringHelper.EMPTY;
 import java.util.Date;
 import java.util.UUID;
 
@@ -12,10 +13,21 @@ public class LendingDTO {
 	private UUID id;
 	private String product;
 	private int loanQuantity;
-	private Date Date;
+	private Date date;
 	private String monitorRecieve; 
 	private String monitorGive;
 	private String lenderName;
+	
+	public LendingDTO() {
+		
+		setId(getDefaultUUID(getId()));
+		setProduct(EMPTY);
+		setLoanQuantity(ZERO);
+		setDate(null);
+		setMonitorRecieve(EMPTY);
+		setMonitorGive(EMPTY);
+		setLenderName(EMPTY);
+	}
 	
 	public LendingDTO(UUID id, String product, int loanQuantity, java.util.Date date, String monitorRecieve, String monitorGive,
 			String lenderName) {
@@ -52,7 +64,8 @@ public class LendingDTO {
 	}
 
 	public final void setDate(Date date) {
-		Date = date;
+		this.date = date;
+		
 	}
 
 	public final void setMonitorRecieve(String monitorRecieve) {
@@ -79,7 +92,7 @@ public class LendingDTO {
 	}
 
 	public Date getDate() {
-		return Date;
+		return date;
 	}
 
 	public String getMonitorRecieve() {

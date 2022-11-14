@@ -29,6 +29,7 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 
 			preparedStatement.setString(1, company.getIDAsString());
 			preparedStatement.setString(2, company.getName());
+			preparedStatement.setString(3, company.getAdmin().toString());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException exception) {
@@ -57,6 +58,7 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 
 		sqlBuilder.append("SELECT com.id AS CompanyId, ");
 		sqlBuilder.append("       com.name AS CompanyName ");
+		sqlBuilder.append("       com.idAdmin AS CompanyIdAdmin ");
 		sqlBuilder.append("FROM company com ");
 	}
 
@@ -74,6 +76,11 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("name = ? ");
 				setWhere = false;
 				parameters.add(company.getName());
+			}
+			if (!ObjectHelper.isNull(company.getAdmin())) {
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("idAdmin = ? ");
+				setWhere = false;
+				parameters.add(company.getAdmin());
 			}
 		}
 	}
@@ -146,7 +153,7 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 	private final CompanyDTO fillCompanyDTO(final ResultSet resultSet) {
 
 		try {
-			return CompanyDTO.create(resultSet.getString("CompanyId"), resultSet.getString("CompanyName"));
+			return CompanyDTO.create(resultSet.getString("CompanyId"), resultSet.getString("CompanyName"), resultSet.);
 		} catch (SQLException exception) {
 			throw DataCustomException.CreateTechnicalException(
 					Messages.CompanyMySQLDAO.TECHNICAL_PROBLEM_FILLING_COMPANYDTO_COMPANY, exception);
@@ -161,6 +168,7 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 
 			preparedStatement.setString(1, company.getIDAsString());
 			preparedStatement.setString(1, company.getName());
+			preparedStatement.setString(1, company.getAdmin().getIDAsString());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException exception) {

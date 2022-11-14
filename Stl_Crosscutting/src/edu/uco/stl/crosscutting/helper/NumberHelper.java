@@ -43,5 +43,9 @@ public class NumberHelper {
 	public static final <T extends Number> boolean isDiferentThan(T numberOne, T numberTwo) {
 		return !isEqualsThan(numberOne, numberTwo);
 	}
+	
+	public static final <T extends Number> boolean isZero(T number) {
+        return number.equals(ZERO);
+    }
 
 }

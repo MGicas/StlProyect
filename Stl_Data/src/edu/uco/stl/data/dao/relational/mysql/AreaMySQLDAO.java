@@ -14,6 +14,7 @@ import edu.uco.stl.crosscutting.messages.Messages;
 import edu.uco.stl.data.dao.AreaDAO;
 import edu.uco.stl.data.dao.relational.DAORelational;
 import edu.uco.stl.domain.AreaDTO;
+import edu.uco.stl.domain.CompanyDTO;
 
 public class AreaMySQLDAO extends DAORelational implements AreaDAO {
 
@@ -23,12 +24,13 @@ public class AreaMySQLDAO extends DAORelational implements AreaDAO {
 
 	@Override
 	public void create(AreaDTO area) {
-		final var sql = "INSERT INTO area(id, name) VALUES (?, ?)";
+		final var sql = "INSERT INTO area(id, name, idCompany) VALUES (?, ?, ?)";
 
 		try (final var preparedStatement = getConnection().prepareStatement(sql)) {
 
 			preparedStatement.setString(1, area.getIDAsString());
 			preparedStatement.setString(2, area.getName());
+			preparedStatement.setString(3, area.getIdCompany().getIDAsString());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException exception) {
@@ -58,7 +60,10 @@ public class AreaMySQLDAO extends DAORelational implements AreaDAO {
 
 		sqlBuilder.append("SELECT ar.id AS AreaId, ");
 		sqlBuilder.append("       ar.name AS AreaName ");
+		sqlBuilder.append("       ar.idCompany AS AreaIdCompany ");
 		sqlBuilder.append("FROM area ar ");
+		sqlBuilder.append("JOIN company ");
+		sqlBuilder.append("JOIN company ");
 	}
 
 	private final void createWhere(final StringBuilder sqlBuilder, final AreaDTO area, final List<Object> parameters) {
@@ -74,6 +79,11 @@ public class AreaMySQLDAO extends DAORelational implements AreaDAO {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("name = ? ");
 				setWhere = false;
 				parameters.add(area.getName());
+			}
+			if (!ObjectHelper.isNull(area.getIdCompany())) {
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("idCompany = ? ");
+				setWhere = false;
+				parameters.add(area.getIdCompany());
 			}
 		}
 	}
@@ -145,7 +155,7 @@ public class AreaMySQLDAO extends DAORelational implements AreaDAO {
 	private final AreaDTO fillAreaDTO(final ResultSet resultSet) {
 
 		try {
-			return AreaDTO.create(resultSet.getString("AreaId"), resultSet.getString("AreaName"));
+			return AreaDTO.create(resultSet.getString("AreaId"), resultSet.getString("AreaName"), resultSet.getInt());
 		} catch (SQLException exception) {
 			throw DataCustomException
 					.CreateTechnicalException(Messages.AreaMySQLDAO.TECHNICAL_PROBLEM_FILLING_AREADTO_AREA, exception);

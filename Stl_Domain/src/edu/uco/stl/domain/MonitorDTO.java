@@ -2,6 +2,7 @@ package edu.uco.stl.domain;
 
 import java.util.UUID;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.*;
+import static edu.uco.stl.crosscutting.helper.StringHelper.EMPTY;
 
 public class MonitorDTO {
 
@@ -12,7 +13,16 @@ public class MonitorDTO {
 	private String firstSurname;
 	private String secondSurname;
 	
-	private MonitorDTO(final UUID id, final String identification, final String firstName, final String secondName, final String firstSurname, final String secondSurname){
+	public MonitorDTO(){
+		setId(getDefaultUUID(getId()));
+		setIdentification(EMPTY);
+		setFirstname(EMPTY);
+		setSecondName(EMPTY);
+		setFirstSurname(EMPTY);
+		setSecondSurname(EMPTY);
+	}
+	
+	public MonitorDTO(final UUID id, final String identification, final String firstName, final String secondName, final String firstSurname, final String secondSurname){
 		setId(getDefaultUUID(getId()));
 		setIdentification(identification);
 		setFirstname(firstName);
@@ -26,7 +36,7 @@ public class MonitorDTO {
 	}
 	
 	public static final MonitorDTO create(String id, String identification, String firstName, String secondName, String firstSurname, String secondSurname) {
-		return new MonitorDTO(getUUIDFromString(id), identification, firstName, secondName, firstName, secondSurname);
+		return new MonitorDTO(getUUIDFromString(id), identification, firstName, secondName, firstSurname, secondSurname);
 	}
 	
 	public final void setId(final UUID id) {
