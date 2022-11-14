@@ -10,24 +10,25 @@ public class CompanyDTO {
 	
 	private UUID id;
 	private String name;
-	private AdminDTO admin;
+	private AdminDTO adminId;
 	
 	public CompanyDTO() {
 		setId(getDefaultUUID(getId()));
 		setName(EMPTY);
-		setAdmin(new AdminDTO());
+		setAdminId(new AdminDTO());
 	}
 	
-	public CompanyDTO(final UUID id, final String name, AdminDTO admin) {
+	public CompanyDTO(final UUID id, final String name, AdminDTO adminId) {
 		setId(getDefaultUUID(getId()));
 		setName(name);
+		setAdminId(adminId);
 	}
-	public static CompanyDTO create(UUID id, String name, AdminDTO admin) {
-		return new CompanyDTO(id,name,admin);
+	public static CompanyDTO create(UUID id, String name, AdminDTO adminId) {
+		return new CompanyDTO(id,name,adminId);
 	}
 	
-	public static final CompanyDTO create(String id, String name, AdminDTO admin){
-		return new CompanyDTO(getUUIDFromString(id), name,admin);
+	public static final CompanyDTO create(String id, String name, AdminDTO adminId){
+		return new CompanyDTO(getUUIDFromString(id), name,adminId);
 	}
 	
 	public UUID getId() {
@@ -43,12 +44,12 @@ public class CompanyDTO {
 		this.name = (name == null)? " " : name.trim();
 	}
 	
-	public AdminDTO getAdmin() {
-		return admin;
+	public AdminDTO getAdminId() {
+		return adminId;
 	}
 
-	public final void setAdmin(AdminDTO admin) {
-		this.admin = admin;
+	public final void setAdminId(AdminDTO adminId) {
+		this.adminId = adminId;
 	}
 
 	public final String getIDAsString() {

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import static edu.uco.stl.crosscutting.helper.StringHelper.isDefaultString;
 import edu.uco.stl.crosscutting.exception.crosscutting.DataCustomException;
 import edu.uco.stl.crosscutting.helper.ObjectHelper;
 import edu.uco.stl.crosscutting.helper.UUIDHelper;
@@ -14,6 +14,7 @@ import edu.uco.stl.crosscutting.messages.Messages;
 import edu.uco.stl.data.dao.CompanyDAO;
 import edu.uco.stl.data.dao.relational.DAORelational;
 import edu.uco.stl.domain.CompanyDTO;
+import edu.uco.stl.domain.AdminDTO;
 
 public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 
@@ -29,7 +30,7 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 
 			preparedStatement.setString(1, company.getIDAsString());
 			preparedStatement.setString(2, company.getName());
-			preparedStatement.setString(3, company.getAdmin().toString());
+			preparedStatement.setString(3, company.getAdminId().getIDAsString());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException exception) {
@@ -58,8 +59,14 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 
 		sqlBuilder.append("SELECT com.id AS CompanyId, ");
 		sqlBuilder.append("       com.name AS CompanyName ");
-		sqlBuilder.append("       com.idAdmin AS CompanyIdAdmin ");
+		sqlBuilder.append("       com.adminId AS CompanyAdminId ");
+		sqlBuilder.append("       ad.identification AS AdminIdentification ");
+		sqlBuilder.append("       ad.firstName AS AdminFirstName ");
+		sqlBuilder.append("       ad.secondName AS AdminSecondName ");
+		sqlBuilder.append("       ad.firstSurname AS AdminFirstSurname");
+		sqlBuilder.append("       ad.secondSurname AS AdminSecondSurname");
 		sqlBuilder.append("FROM company com ");
+		sqlBuilder.append("JOIN admin ad ON com.adminId = ad.id ");
 	}
 
 	private final void createWhere(final StringBuilder sqlBuilder, final CompanyDTO company,
@@ -72,15 +79,15 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 				setWhere = false;
 				parameters.add(company.getIDAsString());
 			}
-			if (!ObjectHelper.isNull(company.getName())) {
+			if (!isDefaultString(company.getName())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("name = ? ");
 				setWhere = false;
 				parameters.add(company.getName());
 			}
-			if (!ObjectHelper.isNull(company.getAdmin())) {
+			if (!ObjectHelper.isNull(company.getAdminId())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("idAdmin = ? ");
 				setWhere = false;
-				parameters.add(company.getAdmin());
+				parameters.add(company.getAdminId());
 			}
 		}
 	}
@@ -153,10 +160,22 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 	private final CompanyDTO fillCompanyDTO(final ResultSet resultSet) {
 
 		try {
-			return CompanyDTO.create(resultSet.getString("CompanyId"), resultSet.getString("CompanyName"), resultSet.);
+			return CompanyDTO.create(resultSet.getString("CompanyId"), resultSet.getString("CompanyName"), fillAdminDTO(resultSet));
 		} catch (SQLException exception) {
 			throw DataCustomException.CreateTechnicalException(
 					Messages.CompanyMySQLDAO.TECHNICAL_PROBLEM_FILLING_COMPANYDTO_COMPANY, exception);
+		}
+	}
+	
+	private final AdminDTO fillAdminDTO(final ResultSet resultSet) {
+
+		try {
+			return AdminDTO.create(resultSet.getString("AdminId"), resultSet.getString("AdminIdentification"),
+					resultSet.getString("AdminFirstName"), resultSet.getString("AdminSecondName"),
+					resultSet.getString("AdminFirstSurname"), resultSet.getString("AdminSecondSurname"));
+		} catch (SQLException exception) {
+			throw DataCustomException.CreateTechnicalException(
+					Messages.AdminMySQLDAO.TECHNICAL_PROBLEM_FILLING_ADMINDTO_ADMIN, exception);
 		}
 	}
 
@@ -168,7 +187,7 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 
 			preparedStatement.setString(1, company.getIDAsString());
 			preparedStatement.setString(1, company.getName());
-			preparedStatement.setString(1, company.getAdmin().getIDAsString());
+			preparedStatement.setString(1, company.getAdminId().getIDAsString());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException exception) {

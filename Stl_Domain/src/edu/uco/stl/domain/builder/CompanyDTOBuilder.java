@@ -9,7 +9,7 @@ public class CompanyDTOBuilder {
 	
 	private UUID id;
 	private String name;
-	private AdminDTO admin;
+	private AdminDTO adminId;
 	
 	private CompanyDTOBuilder() {
 		super();
@@ -29,12 +29,12 @@ public class CompanyDTOBuilder {
 		return this;
 	}
 
-	public CompanyDTOBuilder setAdmin(AdminDTO admin) {
-		this.admin = admin;
+	public CompanyDTOBuilder setAdminId(AdminDTO adminId) {
+		this.adminId = adminId;
 		return this;
 	}
 
 	public final CompanyDTO build() {
-		return CompanyDTO.create(id, name, admin);
+		return CompanyDTO.create(id, name, adminId);
 	}
 }

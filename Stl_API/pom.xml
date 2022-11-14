@@ -37,12 +37,12 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>edu.uco.stl</groupId>
+			<groupId>edu.uco.Stl</groupId>
 			<artifactId>Stl_Domain</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<dependency>
-			<groupId>edu.uco.stl</groupId>
+			<groupId>edu.uco.Stl</groupId>
 			<artifactId>Stl_Service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>

@@ -16,6 +16,7 @@ import edu.uco.stl.data.dao.MonitorDAO;
 import edu.uco.stl.data.dao.relational.DAORelational;
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getUUIDAsString;
 import edu.uco.stl.domain.MonitorDTO;
+import static edu.uco.stl.crosscutting.helper.StringHelper.isDefaultString;
 
 public class MonitorMySQLDAO extends DAORelational implements MonitorDAO{
 	
@@ -80,27 +81,27 @@ public class MonitorMySQLDAO extends DAORelational implements MonitorDAO{
 				setWhere = false;
 				parameters.add(monitor.getIDAsString());
 			}
-			if (!ObjectHelper.isNull(monitor.getIdentification())) {
+			if (!isDefaultString(monitor.getIdentification())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("identification = ? ");
 				setWhere = false;
 				parameters.add(monitor.getIdentification());
 			}
-			if (!ObjectHelper.isNull(monitor.getFirstname())) {
+			if (!isDefaultString(monitor.getFirstname())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("firstName = ? ");
 				setWhere = false;
 				parameters.add(monitor.getFirstname());
 			}
-			if (!ObjectHelper.isNull(monitor.getSecondName())) {
+			if (!isDefaultString(monitor.getSecondName())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("secondName = ? ");
 				setWhere = false;
 				parameters.add(monitor.getSecondName());
 			}
-			if (!ObjectHelper.isNull(monitor.getFirstSurname())) {
+			if (!isDefaultString(monitor.getFirstSurname())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("firstSurname = ? ");
 				setWhere = false;
 				parameters.add(monitor.getFirstSurname());
 			}
-			if (!ObjectHelper.isNull(monitor.getSecondSurname())) {
+			if (!isDefaultString(monitor.getSecondSurname())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("secondSurname = ? ");
 				setWhere = false;
 				parameters.add(monitor.getSecondSurname());

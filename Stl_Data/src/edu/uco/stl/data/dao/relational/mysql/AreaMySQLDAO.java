@@ -13,8 +13,10 @@ import edu.uco.stl.crosscutting.helper.UUIDHelper;
 import edu.uco.stl.crosscutting.messages.Messages;
 import edu.uco.stl.data.dao.AreaDAO;
 import edu.uco.stl.data.dao.relational.DAORelational;
+import edu.uco.stl.domain.AdminDTO;
 import edu.uco.stl.domain.AreaDTO;
 import edu.uco.stl.domain.CompanyDTO;
+import static edu.uco.stl.crosscutting.helper.StringHelper.isDefaultString;
 
 public class AreaMySQLDAO extends DAORelational implements AreaDAO {
 
@@ -61,9 +63,9 @@ public class AreaMySQLDAO extends DAORelational implements AreaDAO {
 		sqlBuilder.append("SELECT ar.id AS AreaId, ");
 		sqlBuilder.append("       ar.name AS AreaName ");
 		sqlBuilder.append("       ar.idCompany AS AreaIdCompany ");
+		sqlBuilder.append("       com.name AS CompanyName ");
 		sqlBuilder.append("FROM area ar ");
-		sqlBuilder.append("JOIN company ");
-		sqlBuilder.append("JOIN company ");
+		sqlBuilder.append("JOIN company com ON ar.idCompany = com.id");
 	}
 
 	private final void createWhere(final StringBuilder sqlBuilder, final AreaDTO area, final List<Object> parameters) {
@@ -75,7 +77,7 @@ public class AreaMySQLDAO extends DAORelational implements AreaDAO {
 				setWhere = false;
 				parameters.add(area.getIDAsString());
 			}
-			if (!ObjectHelper.isNull(area.getName())) {
+			if (!isDefaultString(area.getName())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("name = ? ");
 				setWhere = false;
 				parameters.add(area.getName());
@@ -155,10 +157,32 @@ public class AreaMySQLDAO extends DAORelational implements AreaDAO {
 	private final AreaDTO fillAreaDTO(final ResultSet resultSet) {
 
 		try {
-			return AreaDTO.create(resultSet.getString("AreaId"), resultSet.getString("AreaName"), resultSet.getInt());
+			return AreaDTO.create(resultSet.getString("AreaId"), resultSet.getString("AreaName"), fillCompanyDTO(resultSet));
 		} catch (SQLException exception) {
 			throw DataCustomException
 					.CreateTechnicalException(Messages.AreaMySQLDAO.TECHNICAL_PROBLEM_FILLING_AREADTO_AREA, exception);
+		}
+	}
+	
+	private final CompanyDTO fillCompanyDTO(final ResultSet resultSet) {
+
+		try {
+			return CompanyDTO.create(resultSet.getString("CompanyId"), resultSet.getString("CompanyName"), fillAdminDTO(resultSet));
+		} catch (SQLException exception) {
+			throw DataCustomException.CreateTechnicalException(
+					Messages.CompanyMySQLDAO.TECHNICAL_PROBLEM_FILLING_COMPANYDTO_COMPANY, exception);
+		}
+	}
+	
+	private final AdminDTO fillAdminDTO(final ResultSet resultSet) {
+
+		try {
+			return AdminDTO.create(resultSet.getString("AdminId"), resultSet.getString("AdminIdentification"),
+					resultSet.getString("AdminFirstName"), resultSet.getString("AdminSecondName"),
+					resultSet.getString("AdminFirstSurname"), resultSet.getString("AdminSecondSurname"));
+		} catch (SQLException exception) {
+			throw DataCustomException.CreateTechnicalException(
+					Messages.AdminMySQLDAO.TECHNICAL_PROBLEM_FILLING_ADMINDTO_ADMIN, exception);
 		}
 	}
 

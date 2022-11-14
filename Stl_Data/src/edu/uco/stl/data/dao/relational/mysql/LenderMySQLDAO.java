@@ -14,6 +14,7 @@ import edu.uco.stl.crosscutting.messages.Messages;
 import edu.uco.stl.data.dao.LenderDAO;
 import edu.uco.stl.data.dao.relational.DAORelational;
 import edu.uco.stl.domain.LenderDTO;
+import static edu.uco.stl.crosscutting.helper.StringHelper.isDefaultString;
 
 public class LenderMySQLDAO extends DAORelational implements LenderDAO{
 	
@@ -88,42 +89,42 @@ public class LenderMySQLDAO extends DAORelational implements LenderDAO{
 				setWhere = false;
 				parameters.add(lender.getIDAsString());
 			}
-			if (!ObjectHelper.isNull(lender.getIdentification())) {
+			if (!isDefaultString(lender.getIdentification())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("identification = ? ");
 				setWhere = false;
 				parameters.add(lender.getIdentification());
 			}
-			if (!ObjectHelper.isNull(lender.getFirstName())) {
+			if (!isDefaultString(lender.getFirstName())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("firstName = ? ");
 				setWhere = false;
 				parameters.add(lender.getFirstName());
 			}
-			if (!ObjectHelper.isNull(lender.getSecondName())) {
+			if (!isDefaultString(lender.getSecondName())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("secondName = ? ");
 				setWhere = false;
 				parameters.add(lender.getSecondName());
 			}
-			if (!ObjectHelper.isNull(lender.getFirstSurname())) {
+			if (!isDefaultString(lender.getFirstSurname())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("firstSurname = ? ");
 				setWhere = false;
 				parameters.add(lender.getFirstSurname());
 			}
-			if (!ObjectHelper.isNull(lender.getSecondSurname())) {
+			if (!isDefaultString(lender.getSecondSurname())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("secondSurname = ? ");
 				setWhere = false;
 				parameters.add(lender.getSecondSurname());
 			}
-			if (!ObjectHelper.isNull(lender.getCity())) {
+			if (!isDefaultString(lender.getCity())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("city = ? ");
 				setWhere = false;
 				parameters.add(lender.getCity());
 			}
-			if (!ObjectHelper.isNull(lender.getNeighborhood())) {
+			if (!isDefaultString(lender.getNeighborhood())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("neighborhood = ? ");
 				setWhere = false;
 				parameters.add(lender.getNeighborhood());
 			}
-			if (!ObjectHelper.isNull(lender.getAddress())) {
+			if (!isDefaultString(lender.getAddress())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("address = ? ");
 				setWhere = false;
 				parameters.add(lender.getAddress());
@@ -133,7 +134,7 @@ public class LenderMySQLDAO extends DAORelational implements LenderDAO{
 				setWhere = false;
 				parameters.add(lender.getPhone());
 			}
-			if (!ObjectHelper.isNull(lender.getMail())) {
+			if (!isDefaultString(lender.getMail())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("mail = ? ");
 				setWhere = false;
 				parameters.add(lender.getMail());

@@ -13,6 +13,8 @@ import edu.uco.stl.crosscutting.messages.Messages;
 import edu.uco.stl.data.dao.LendingDAO;
 import edu.uco.stl.data.dao.relational.DAORelational;
 import edu.uco.stl.domain.LendingDTO;
+import static edu.uco.stl.crosscutting.helper.StringHelper.isDefaultString;
+
 
 public class LendingMySQLDAO extends DAORelational implements LendingDAO {
 
@@ -80,7 +82,7 @@ public class LendingMySQLDAO extends DAORelational implements LendingDAO {
 				setWhere = false;
 				parameters.add(lending.getIDAsString());
 			}
-			if (!ObjectHelper.isNull(lending.getProduct())) {
+			if (!isDefaultString(lending.getProduct())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("product = ? ");
 				setWhere = false;
 				parameters.add(lending.getProduct());
@@ -95,17 +97,17 @@ public class LendingMySQLDAO extends DAORelational implements LendingDAO {
 				setWhere = false;
 				parameters.add(lending.getDate());
 			}
-			if (!ObjectHelper.isNull(lending.getMonitorRecieve())) {
+			if (!isDefaultString(lending.getMonitorRecieve())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("monitorRecieve = ? ");
 				setWhere = false;
 				parameters.add(lending.getMonitorRecieve());
 			}
-			if (!ObjectHelper.isNull(lending.getMonitorGive())) {
+			if (!isDefaultString(lending.getMonitorGive())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("monitorGive = ? ");
 				setWhere = false;
 				parameters.add(lending.getMonitorGive());
 			}
-			if (!ObjectHelper.isNull(lending.getLenderName())) {
+			if (!isDefaultString(lending.getLenderName())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("lenderName = ? ");
 				setWhere = false;
 				parameters.add(lending.getLenderName());

@@ -17,6 +17,7 @@ import edu.uco.stl.crosscutting.messages.Messages;
 import edu.uco.stl.data.dao.ProductDAO;
 import edu.uco.stl.data.dao.relational.DAORelational;
 import edu.uco.stl.domain.ProductDTO;
+import static edu.uco.stl.crosscutting.helper.StringHelper.isDefaultString;
 
 public class ProductMySQLDAO extends DAORelational implements ProductDAO {
 
@@ -76,12 +77,12 @@ public class ProductMySQLDAO extends DAORelational implements ProductDAO {
 				setWhere = false;
 				parameters.add(product.getIDAsString());
 			}
-			if (!ObjectHelper.isNull(product.getName())) {
+			if (!isDefaultString(product.getName())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("name = ? ");
 				setWhere = false;
 				parameters.add(product.getName());
 			}
-			if (!ObjectHelper.isNull(product.getDescription())) {
+			if (!isDefaultString(product.getDescription())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("description = ? ");
 				setWhere = false;
 				parameters.add(product.getDescription());

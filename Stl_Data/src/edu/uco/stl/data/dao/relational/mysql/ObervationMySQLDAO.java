@@ -17,6 +17,7 @@ import edu.uco.stl.crosscutting.messages.Messages;
 import edu.uco.stl.data.dao.ObservationDAO;
 import edu.uco.stl.data.dao.relational.DAORelational;
 import edu.uco.stl.domain.ObservationDTO;
+import static edu.uco.stl.crosscutting.helper.StringHelper.isDefaultString;
 
 public class ObervationMySQLDAO extends DAORelational implements ObservationDAO {
 
@@ -89,7 +90,7 @@ public class ObervationMySQLDAO extends DAORelational implements ObservationDAO 
 				setWhere = false;
 				parameters.add(observation.getLoanExtencion());
 			}
-			if (!ObjectHelper.isNull(observation.getDescription())) {
+			if (!isDefaultString(observation.getDescription())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("description = ? ");
 				setWhere = false;
 				parameters.add(observation.getDescription());
