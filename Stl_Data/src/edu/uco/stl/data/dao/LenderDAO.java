@@ -6,11 +6,11 @@ import edu.uco.stl.domain.LenderDTO;
 
 public interface LenderDAO {
 	
-	void create(LenderDTO inventory);
+	void create(LenderDTO lender);
 
-	List<LenderDTO> find(LenderDTO inventory);
+	List<LenderDTO> find(LenderDTO lender);
 
-	void update(LenderDTO inventory);
+	void update(LenderDTO lender);
 	
 
 }

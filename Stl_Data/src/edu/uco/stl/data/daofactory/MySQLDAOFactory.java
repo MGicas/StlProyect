@@ -1,7 +1,10 @@
 package edu.uco.stl.data.daofactory;
 
 import java.sql.Connection;
-
+import edu.uco.stl.crosscutting.exception.crosscutting.CrosscuttingCustomException;
+import edu.uco.stl.crosscutting.exception.crosscutting.DataCustomException;
+import edu.uco.stl.crosscutting.helper.SqlConnectionHelper;
+import edu.uco.stl.crosscutting.messages.Messages;
 import edu.uco.stl.data.dao.AdminDAO;
 import edu.uco.stl.data.dao.AreaDAO;
 import edu.uco.stl.data.dao.CompanyDAO;
@@ -12,6 +15,16 @@ import edu.uco.stl.data.dao.MonitorDAO;
 import edu.uco.stl.data.dao.ObservationDAO;
 import edu.uco.stl.data.dao.ProductDAO;
 import edu.uco.stl.data.dao.StlDAO;
+import edu.uco.stl.data.dao.relational.mysql.AdminMySQLDAO;
+import edu.uco.stl.data.dao.relational.mysql.AreaMySQLDAO;
+import edu.uco.stl.data.dao.relational.mysql.CompanyMySQLDAO;
+import edu.uco.stl.data.dao.relational.mysql.InventoryMySQLDAO;
+import edu.uco.stl.data.dao.relational.mysql.LenderMySQLDAO;
+import edu.uco.stl.data.dao.relational.mysql.LendingMySQLDAO;
+import edu.uco.stl.data.dao.relational.mysql.MonitorMySQLDAO;
+import edu.uco.stl.data.dao.relational.mysql.ObervationMySQLDAO;
+import edu.uco.stl.data.dao.relational.mysql.ProductMySQLDAO;
+import edu.uco.stl.data.dao.relational.mysql.StlMySQLDAO;
 
 final class MySQLDAOFactory extends DAOFactory {
 	
@@ -29,86 +42,88 @@ final class MySQLDAOFactory extends DAOFactory {
 
 	@Override
 	public void initTransction() {
-		// TODO Auto-generated method stub
-		
+		try {
+		SqlConnectionHelper.initTrasaction(connection);
+		}catch (CrosscuttingCustomException exception) {
+			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_CONNECTION_INIT_TRANSACTION, exception);
+		}
 	}
 
 	@Override
 	public void confirmTransaction() {
-		// TODO Auto-generated method stub
-		
+		try {
+			SqlConnectionHelper.commitTrasaction(connection);
+		} catch (CrosscuttingCustomException exception) {
+			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_CONNECTION_CONFIRM_TRANSACTION, exception);
+		}
 	}
 
 	@Override
 	public void cancelTransaction() {
-		// TODO Auto-generated method stub
-		
+		try {
+			SqlConnectionHelper.rollbackTrasaction(connection);
+		} catch (CrosscuttingCustomException exception) {
+			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_CONNECTION_ROLLBACK_TRANSACTION, exception);
+		}
 	}
 
 	@Override
 	public void closeTransaction() {
-		// TODO Auto-generated method stub
-		
+		try {
+			SqlConnectionHelper.closeConnection(connection);
+		} catch (CrosscuttingCustomException exception) {
+			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_CONNECTION_CLOSE_CONNECTION, exception);
+		}
 	}
 
 	@Override
 	public AdminDAO getAdminDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new AdminMySQLDAO(connection);
 	}
 
 	@Override
 	public AreaDAO getAreaDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new AreaMySQLDAO(connection);
 	}
 
 	@Override
 	public CompanyDAO getCompanyDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new CompanyMySQLDAO(connection);
 	}
 
 	@Override
 	public InventoryDAO getInventoryDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new InventoryMySQLDAO(connection);
 	}
 	
 	@Override
 	public LenderDAO getLenderDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new LenderMySQLDAO(connection);
 	}
 
 	@Override
 	public LendingDAO getLendingDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new LendingMySQLDAO(connection);
 	}
 
 	@Override
 	public MonitorDAO getMonitorDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new MonitorMySQLDAO(connection);
 	}
 
 	@Override
 	public ObservationDAO getObservationDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ObervationMySQLDAO(connection);
 	}
 
 	@Override
 	public ProductDAO getProductDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ProductMySQLDAO(connection);
 	}
 
 	@Override
 	public StlDAO getStlDAO() {
-		// TODO Auto-generated method stub
-		return null;
+		return new StlMySQLDAO(connection);
 	}
 
 }

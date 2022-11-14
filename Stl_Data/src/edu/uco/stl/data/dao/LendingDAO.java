@@ -6,14 +6,14 @@ import edu.uco.stl.domain.LendingDTO;
 
 public interface LendingDAO {
 	
-	void create(LendingDTO inventory);
+	void create(LendingDTO lending);
 
-	List<LendingDTO> find(LendingDTO inventory);
+	List<LendingDTO> find(LendingDTO lending);
 
-	void update(LendingDTO inventory);
+	void update(LendingDTO lending);
 	
-	void close(LendingDTO inventory);
+	void close(LendingDTO lending);
 	
-	void overcome(LendingDTO inventory);
+	void overcome(LendingDTO lending);
 
 }

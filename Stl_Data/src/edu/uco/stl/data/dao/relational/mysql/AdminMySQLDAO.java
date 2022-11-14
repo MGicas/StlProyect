@@ -79,27 +79,27 @@ public class AdminMySQLDAO extends DAORelational implements AdminDAO {
 				parameters.add(admin.getIDAsString());
 			}
 			if (!ObjectHelper.isNull(admin.getIdentification())) {
-				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("name = ? ");
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("identification = ? ");
 				setWhere = false;
 				parameters.add(admin.getIdentification());
 			}
 			if (!ObjectHelper.isNull(admin.getFirstname())) {
-				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("name = ? ");
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("firstName = ? ");
 				setWhere = false;
 				parameters.add(admin.getFirstname());
 			}
 			if (!ObjectHelper.isNull(admin.getSecondName())) {
-				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("name = ? ");
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("secondName = ? ");
 				setWhere = false;
 				parameters.add(admin.getSecondName());
 			}
 			if (!ObjectHelper.isNull(admin.getFirstSurname())) {
-				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("name = ? ");
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("firstSurname = ? ");
 				setWhere = false;
 				parameters.add(admin.getFirstSurname());
 			}
 			if (!ObjectHelper.isNull(admin.getSecondSurname())) {
-				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("name = ? ");
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("secondSurname = ? ");
 				setWhere = false;
 				parameters.add(admin.getSecondSurname());
 			}
@@ -108,7 +108,7 @@ public class AdminMySQLDAO extends DAORelational implements AdminDAO {
 
 	private final void createOrderBy(final StringBuilder sqlBuilder) {
 
-		sqlBuilder.append("ORDER BY ar.id");
+		sqlBuilder.append("ORDER BY ad.id");
 	}
 
 	private final List<AdminDTO> prepareAndExecuteQuery(final StringBuilder sqlBuilder, final List<Object> parameters) {

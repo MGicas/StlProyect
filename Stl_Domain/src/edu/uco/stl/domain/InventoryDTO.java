@@ -9,24 +9,24 @@ import java.util.UUID;
 public class InventoryDTO {
 
 	private UUID id;
-	private String nombre;
+	private String name;
 	private int productQuantity;
 	private boolean status;
 	
 	
-	public InventoryDTO(final UUID id, final String nombre, final int productQuantity,final boolean status) {
+	public InventoryDTO(final UUID id, final String name, final int productQuantity,final boolean status) {
 		setId(getDefaultUUID(getId()));
-		setNombre(nombre);
+		setName(name);
 		setProductQuantity(productQuantity);
 		setStatus(status);
 		
 	}
-	public static InventoryDTO create(UUID id, String nombre,int productQuantity, boolean status) {
-		return new InventoryDTO(id, nombre, 0, true);
+	public static InventoryDTO create(UUID id, String name,int productQuantity, boolean status) {
+		return new InventoryDTO(id, name, 0, true);
 	}
 	
-	public static final InventoryDTO create(String id, String nombre,int productQuantity, boolean status){
-		return new InventoryDTO(getUUIDFromString(id), nombre, 0, true);
+	public static final InventoryDTO create(String id, String name,int productQuantity, boolean status){
+		return new InventoryDTO(getUUIDFromString(id), name, 0, true);
 	}
 	
 	public UUID getId() {
@@ -35,11 +35,11 @@ public class InventoryDTO {
 	public final void setId(final UUID id) {
 		this.id = getDefaultUUID(id);
 	}
-	public String getNombre() {
-		return nombre;
+	public String getName() {
+		return name;
 	}
-	public final void setNombre(final String nombre) {
-		this.nombre = (nombre == null)? " " : nombre.trim();
+	public final void setName(final String name) {
+		this.name = (name == null)? " " : name.trim();
 	}
 	
 	public int getProductQuantity() {

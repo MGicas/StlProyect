@@ -35,7 +35,7 @@ public class ObservationDTO {
 	public final void setReturnComplete(boolean returnComplete) {
 		this.returnComplete = returnComplete;
 	}
-	public final void setLoanExtencion(Date loanExtencion) {
+	public void setLoanExtencion(Date loanExtencion) {
 		this.loanExtencion = loanExtencion;
 	}
 	public final void setDescription(String description) {

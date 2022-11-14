@@ -80,7 +80,7 @@ public class CompanyMySQLDAO extends DAORelational implements CompanyDAO {
 
 	private final void createOrderBy(final StringBuilder sqlBuilder) {
 
-		sqlBuilder.append("ORDER BY ar.id");
+		sqlBuilder.append("ORDER BY com.id");
 	}
 
 	private final List<CompanyDTO> prepareAndExecuteQuery(final StringBuilder sqlBuilder,
