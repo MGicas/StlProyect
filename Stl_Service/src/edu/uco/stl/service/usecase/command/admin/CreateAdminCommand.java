@@ -1,4 +1,4 @@
-package edu.uco.stl.service.usecase.command;
+package edu.uco.stl.service.usecase.command.admin;
 
 import edu.uco.stl.domain.AdminDTO;
 

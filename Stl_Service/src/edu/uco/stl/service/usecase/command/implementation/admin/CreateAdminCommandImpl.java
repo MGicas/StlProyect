@@ -1,4 +1,4 @@
-package edu.uco.stl.service.usecase.command.implementation;
+package edu.uco.stl.service.usecase.command.implementation.admin;
 
 import edu.uco.stl.crosscutting.exception.crosscutting.UseCaseCustomException;
 import edu.uco.stl.crosscutting.execption.StlCustomException;
@@ -6,7 +6,7 @@ import edu.uco.stl.data.daofactory.DAOFactory;
 import edu.uco.stl.data.enumeration.DAOFactoryType;
 import edu.uco.stl.domain.AdminDTO;
 import edu.uco.stl.service.usecase.admin.CreateAdminUseCase;
-import edu.uco.stl.service.usecase.command.CreateAdminCommand;
+import edu.uco.stl.service.usecase.command.admin.CreateAdminCommand;
 import edu.uco.stl.service.usecase.implementation.admin.CreateAdminUseCaseImpl;
 
 public class CreateAdminCommandImpl implements CreateAdminCommand{
