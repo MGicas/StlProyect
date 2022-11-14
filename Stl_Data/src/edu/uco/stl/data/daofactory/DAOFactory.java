@@ -15,7 +15,7 @@ import edu.uco.stl.crosscutting.messages.Messages;
 
 public abstract class DAOFactory {
 
-	public static final DAOFactory getDAOFactory(final DAOFactoryType factory) {
+	public static final DAOFactory getDAOFactory(DAOFactoryType factory) {
 
 		DAOFactory daoFactory;
 

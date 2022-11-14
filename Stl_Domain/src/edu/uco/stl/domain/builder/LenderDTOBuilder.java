@@ -1,7 +1,5 @@
 package edu.uco.stl.domain.builder;
 
-import java.util.UUID;
-
 public class LenderDTOBuilder {
 	
 	private String id;
