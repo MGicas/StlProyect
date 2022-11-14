@@ -330,4 +330,41 @@ public class Messages {
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATING_COMPANY = "There was an unexpected problem creating company, try again";
 
 	}
+	
+	public static class AdminController {
+
+		private AdminController() {
+			super();
+		}
+
+		public static final String USER_ADMIN_CREATE_SUCCESSFULLY = "The admin has been created successfully";
+		public static final String USER_ADMIN_CREATE_ERROR = "There was an error trayig to create the admin, try again";
+		public static final String USER_ADMIN_CREATE_UNEXPECTED_ERROR = "There was a unexpected error trayig to create the admin, try again";
+
+	}
+	
+	public static class CompanyController {
+
+		private CompanyController() {
+			super();
+		}
+
+		public static final String USER_COMPANY_CREATE_SUCCESSFULLY = "The company has been created successfully";
+		public static final String USER_COMPANY_CREATE_ERROR = "There was an error trayig to create the company, try again";
+		public static final String USER_COMPANY_CREATE_UNEXPECTED_ERROR = "There was a unexpected error trayig to create the company, try again";
+
+	}
+	
+	public static class CompanyValidator {
+
+		private CompanyValidator() {
+			super();
+		}
+
+		public static final String USER_COMPANY_VALIDATOR_IDADMIN = "Admin id is equal to default value";
+		public static final String USER_COMPANY_CREATE_ERROR = "There was an error trayig to create the company, try again";
+		public static final String USER_COMPANY_CREATE_UNEXPECTED_ERROR = "There was a unexpected error trayig to create the company, try again";
+
+	}
+
 }
