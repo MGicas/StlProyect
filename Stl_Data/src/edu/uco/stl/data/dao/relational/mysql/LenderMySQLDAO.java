@@ -23,7 +23,7 @@ public class LenderMySQLDAO extends DAORelational implements LenderDAO{
 
 	@Override
 	public void create(LenderDTO lender) {
-		final var sql = "INSERT INTO lender(id, identification, firstName, secondName, firstSurname, secondSurname, ciudad, barrio, direccion, telefono, correo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		final var sql = "INSERT INTO lender(id, identification, firstName, secondName, firstSurname, secondSurname, city, neighborhood, address, phone, mail) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try (final var preparedStatement = getConnection().prepareStatement(sql)) {
 
@@ -33,11 +33,11 @@ public class LenderMySQLDAO extends DAORelational implements LenderDAO{
 			preparedStatement.setString(4, lender.getSecondName());
 			preparedStatement.setString(5, lender.getFirstSurname());
 			preparedStatement.setString(6, lender.getSecondSurname());
-			preparedStatement.setString(7, lender.getCiudad());
-			preparedStatement.setString(8, lender.getBarrio());
-			preparedStatement.setString(9, lender.getDireccion());
-			preparedStatement.setInt(10, lender.getTelefono());
-			preparedStatement.setString(11, lender.getCorreo());
+			preparedStatement.setString(7, lender.getCity());
+			preparedStatement.setString(8, lender.getNeighborhood());
+			preparedStatement.setString(9, lender.getAddress());
+			preparedStatement.setInt(10, lender.getPhone());
+			preparedStatement.setString(11, "'"+lender.getMail()+"'");
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException exception) {
@@ -70,11 +70,11 @@ public class LenderMySQLDAO extends DAORelational implements LenderDAO{
 		sqlBuilder.append("       ler.secondName AS LenderSecondName ");
 		sqlBuilder.append("       ler.firstSurname AS LenderFirstSurname");
 		sqlBuilder.append("       ler.secondSurname AS LenderSecondSurname");
-		sqlBuilder.append("       ler.ciudad AS LenderCiudad");
-		sqlBuilder.append("       ler.barrio AS LenderBarrio");
-		sqlBuilder.append("       ler.direccion AS LenderDireccion");
-		sqlBuilder.append("       ler.telefono AS LenderTelefono");
-		sqlBuilder.append("       ler.correo AS LenderCorre");
+		sqlBuilder.append("       ler.city AS LenderCity");
+		sqlBuilder.append("       ler.neighborhood AS LenderNeighborhood");
+		sqlBuilder.append("       ler.address AS LenderAddress");
+		sqlBuilder.append("       ler.phone AS LenderPhone");
+		sqlBuilder.append("       ler.mail AS LenderMail");
 		sqlBuilder.append("FROM lender ler ");
 	}
 	
@@ -113,30 +113,30 @@ public class LenderMySQLDAO extends DAORelational implements LenderDAO{
 				setWhere = false;
 				parameters.add(lender.getSecondSurname());
 			}
-			if (!ObjectHelper.isNull(lender.getSecondSurname())) {
-				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("ciudad = ? ");
+			if (!ObjectHelper.isNull(lender.getCity())) {
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("city = ? ");
 				setWhere = false;
-				parameters.add(lender.getCiudad());
+				parameters.add(lender.getCity());
 			}
-			if (!ObjectHelper.isNull(lender.getSecondSurname())) {
-				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("barrio = ? ");
+			if (!ObjectHelper.isNull(lender.getNeighborhood())) {
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("neighborhood = ? ");
 				setWhere = false;
-				parameters.add(lender.getBarrio());
+				parameters.add(lender.getNeighborhood());
 			}
-			if (!ObjectHelper.isNull(lender.getSecondSurname())) {
-				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("direccion = ? ");
+			if (!ObjectHelper.isNull(lender.getAddress())) {
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("address = ? ");
 				setWhere = false;
-				parameters.add(lender.getDireccion());
+				parameters.add(lender.getAddress());
 			}
-			if (!ObjectHelper.isNull(lender.getSecondSurname())) {
-				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("telefono = ? ");
+			if (!ObjectHelper.isNull(lender.getPhone())) {
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("phone = ? ");
 				setWhere = false;
-				parameters.add(lender.getTelefono());
+				parameters.add(lender.getPhone());
 			}
-			if (!ObjectHelper.isNull(lender.getSecondSurname())) {
-				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("correo = ? ");
+			if (!ObjectHelper.isNull(lender.getMail())) {
+				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("mail = ? ");
 				setWhere = false;
-				parameters.add(lender.getCorreo());
+				parameters.add(lender.getMail());
 			}
 		}
 	}
@@ -219,7 +219,7 @@ public class LenderMySQLDAO extends DAORelational implements LenderDAO{
 
 	@Override
 	public void update(LenderDTO lender) {
-		final var sql = "UPDATE lender SET id = ?, identification = ?, firstName = ? , secondName = ? , firstSurname = ? , secondSurname = ?, ciudad = ?, barrio = ?, direccion = ?, telefono = ?, correo = ?";
+		final var sql = "UPDATE lender SET id = ?, identification = ?, firstName = ? , secondName = ? , firstSurname = ? , secondSurname = ?, city = ?, neighborhood = ?, address = ?, phone = ?, mail = ?";
 
 		try (final var preparedStatement = getConnection().prepareStatement(sql)) {
 
@@ -229,11 +229,11 @@ public class LenderMySQLDAO extends DAORelational implements LenderDAO{
 			preparedStatement.setString(1, lender.getSecondName());
 			preparedStatement.setString(1, lender.getFirstSurname());
 			preparedStatement.setString(1, lender.getSecondSurname());
-			preparedStatement.setString(1, lender.getCiudad());
-			preparedStatement.setString(1, lender.getBarrio());
-			preparedStatement.setString(1, lender.getDireccion());
-			preparedStatement.setInt(1, lender.getTelefono());
-			preparedStatement.setString(1, lender.getCorreo());
+			preparedStatement.setString(1, lender.getCity());
+			preparedStatement.setString(1, lender.getNeighborhood());
+			preparedStatement.setString(1, lender.getAddress());
+			preparedStatement.setInt(1, lender.getPhone());
+			preparedStatement.setString(1, lender.getMail());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException exception) {

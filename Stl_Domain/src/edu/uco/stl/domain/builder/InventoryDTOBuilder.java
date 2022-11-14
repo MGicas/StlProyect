@@ -7,7 +7,7 @@ import edu.uco.stl.domain.InventoryDTO;
 public class InventoryDTOBuilder {
 
 	private UUID id;
-	private String nombre;
+	private String name;
 	private int productQuantity;
 	private boolean status;
 	
@@ -24,8 +24,8 @@ public class InventoryDTOBuilder {
 		return this;
 	}
 
-	public InventoryDTOBuilder setNombre(String nombre) {
-		this.nombre = nombre;
+	public InventoryDTOBuilder setName(String name) {
+		this.name = name;
 		return this;
 	}
 
@@ -40,6 +40,6 @@ public class InventoryDTOBuilder {
 	}
 	
 	public final InventoryDTO build() {
-		return InventoryDTO.create(id, nombre, productQuantity, status);
+		return InventoryDTO.create(id, name, productQuantity, status);
 	}
 }

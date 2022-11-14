@@ -6,7 +6,7 @@ import edu.uco.stl.domain.CompanyDTO;
 public class CompanyDTOBuilder {
 	
 	private UUID id;
-	private String nombre;
+	private String name;
 	
 	private CompanyDTOBuilder() {
 		super();
@@ -21,12 +21,12 @@ public class CompanyDTOBuilder {
 		return this;
 	}
 
-	public CompanyDTOBuilder setNombre(String nombre) {
-		this.nombre = nombre;
+	public CompanyDTOBuilder setName(String name) {
+		this.name = name;
 		return this;
 	}
 	
 	public final CompanyDTO build() {
-		return CompanyDTO.create(id, nombre);
+		return CompanyDTO.create(id, name);
 	}
 }

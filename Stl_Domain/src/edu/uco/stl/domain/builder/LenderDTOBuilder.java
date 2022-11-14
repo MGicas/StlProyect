@@ -10,11 +10,11 @@ public class LenderDTOBuilder {
 	private String secondName;
 	private String firstSurname;
 	private String secondSurname;
-	private String ciudad;
-	private String barrio;
-	private String direccion;
-	private int telefono;
-	private String correo;
+	private String city;
+	private String neighborhood;
+	private String address;
+	private int phone;
+	private String mail;
 
 	private LenderDTOBuilder() {
 		super();
@@ -54,28 +54,28 @@ public class LenderDTOBuilder {
 		return this;
 	}
 
-	public LenderDTOBuilder setCiudad(String ciudad) {
-		this.ciudad = ciudad;
+	public LenderDTOBuilder setCity(String city) {
+		this.city = city;
 		return this;
 	}
 
-	public LenderDTOBuilder setBarrio(String barrio) {
-		this.barrio = barrio;
+	public LenderDTOBuilder setNeighborhood(String neighborhood) {
+		this.neighborhood = neighborhood;
 		return this;
 	}
 
-	public LenderDTOBuilder setDireccion(String direccion) {
-		this.direccion = direccion;
+	public LenderDTOBuilder setAddress(String address) {
+		this.address = address;
 		return this;
 	}
 
-	public LenderDTOBuilder setTelefono(int telefono) {
-		this.telefono = telefono;
+	public LenderDTOBuilder setPhone(int phone) {
+		this.phone = phone;
 		return this;
 	}
 
-	public LenderDTOBuilder setCorreo(String correo) {
-		this.correo = correo;
+	public LenderDTOBuilder setMail(String mail) {
+		this.mail = mail;
 		return this;
 	}
 	

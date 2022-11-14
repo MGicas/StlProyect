@@ -9,7 +9,6 @@ import edu.uco.stl.data.dao.LendingDAO;
 import edu.uco.stl.data.dao.MonitorDAO;
 import edu.uco.stl.data.dao.ObservationDAO;
 import edu.uco.stl.data.dao.ProductDAO;
-import edu.uco.stl.data.dao.StlDAO;
 import edu.uco.stl.data.enumeration.DAOFactoryType;
 import edu.uco.stl.crosscutting.exception.crosscutting.DataCustomException;
 import edu.uco.stl.crosscutting.messages.Messages;
@@ -72,6 +71,4 @@ public abstract class DAOFactory {
 	public abstract ObservationDAO getObservationDAO();
 
 	public abstract ProductDAO getProductDAO();
-
-	public abstract StlDAO getStlDAO();
 }

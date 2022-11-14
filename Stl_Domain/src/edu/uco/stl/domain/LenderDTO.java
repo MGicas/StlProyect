@@ -14,37 +14,37 @@ public class LenderDTO {
 	private String secondName;
 	private String firstSurname;
 	private String secondSurname;
-	private String ciudad;
-	private String barrio;
-	private String direccion;
-	private int telefono;
-	private String correo;
+	private String city;
+	private String neighborhood;
+	private String address;
+	private int phone;
+	private String mail;
 	
 	
 	
 	public LenderDTO(UUID id, String identification, String firstName, String secondName, String firstSurname,
-			String secondSurname, String ciudad, String barrio, String direccion, int telefono, String correo) {
+			String secondSurname, String city, String neighborhood, String address, int phone, String mail) {
 		setId(getDefaultUUID(getId()));
 		setIdentification(identification);
 		setFirstname(firstName);
 		setSecondName(secondName);
 		setFirstSurname(firstSurname);
 		setSecondSurname(secondSurname);
-		setCiudad(ciudad);
-		setBarrio(barrio);
-		setDireccion(direccion);
-		setTelefono(telefono);
-		setCorreo(correo);
+		setCity(city);
+		setNeighborhood(neighborhood);
+		setAddress(address);
+		setPhone(phone);
+		setMail(mail);
 	}
 	
 	public static LenderDTO create(UUID id, String identification, String firstName, String secondName, String firstSurname,
-			String secondSurname, String ciudad, String barrio, String direccion, int telefono, String correo) {
-		return new LenderDTO(id, identification, firstName, secondName, firstSurname, secondSurname, ciudad, barrio, direccion, telefono, correo);
+			String secondSurname, String city, String neighborhood, String address, int phone, String mail) {
+		return new LenderDTO(id, identification, firstName, secondName, firstSurname, secondSurname, city, neighborhood, address, phone, mail);
 	}
 	
 	public static final LenderDTO create(String id, String identification, String firstName, String secondName, String firstSurname,
-			String secondSurname, String ciudad, String barrio, String direccion, int telefono, String correo) {
-		return new LenderDTO(getUUIDFromString(id), identification, firstName, secondName, firstSurname, secondSurname, ciudad, barrio, direccion, telefono, correo);
+			String secondSurname, String city, String neighborhood, String address, int phone, String mail) {
+		return new LenderDTO(getUUIDFromString(id), identification, firstName, secondName, firstSurname, secondSurname, city, neighborhood, address, phone, mail);
 	}
 	public UUID getId() {
 		return id;
@@ -82,35 +82,35 @@ public class LenderDTO {
 	public final void setSecondSurname(String secondSurname) {
 		this.secondSurname = (secondSurname == null)? " " : secondSurname.trim();
 	}
-	public String getCiudad() {
-		return ciudad;
+	public String getCity() {
+		return city;
 	}
-	public final void setCiudad(String ciudad) {
-		this.ciudad = (ciudad == null)? " " : ciudad.trim();
+	public final void setCity(String city) {
+		this.city = (city == null)? " " : city.trim();
 	}
-	public String getBarrio() {
-		return barrio;
+	public String getNeighborhood() {
+		return neighborhood;
 	}
-	public final void setBarrio(String barrio) {
-		this.barrio = (barrio == null)? " " : barrio.trim();
+	public final void setNeighborhood(String neighborhood) {
+		this.neighborhood = (neighborhood == null)? " " : neighborhood.trim();
 	}
-	public String getDireccion() {
-		return direccion;
+	public String getAddress() {
+		return address;
 	}
-	public final void setDireccion(String direccion) {
-		this.direccion = (direccion == null)? " " : direccion.trim();
+	public final void setAddress(String address) {
+		this.address = (address == null)? " " : address.trim();
 	}
-	public int getTelefono() {
-		return telefono;
+	public int getPhone() {
+		return phone;
 	}
-	public final void setTelefono(int telefono) {
-		this.telefono = telefono;
+	public final void setPhone(int phone) {
+		this.phone = phone;
 	}
-	public String getCorreo() {
-		return correo;
+	public String getMail() {
+		return mail;
 	}
-	public final void setCorreo(String correo) {
-		this.correo = (correo == null)? " " : correo.trim();
+	public final void setMail(String mail) {
+		this.mail = (mail == null)? " " : mail.trim();
 	}
 	
 	public final String getSurname() {
@@ -122,7 +122,7 @@ public class LenderDTO {
 	}
 	
 	public final String getDireccionCompleta() {
-		return getCiudad()+" " + getBarrio().trim()+ getDireccion();
+		return getCity()+" " + getNeighborhood().trim()+ getAddress();
 	}
 	
 	public final String getIDAsString() {

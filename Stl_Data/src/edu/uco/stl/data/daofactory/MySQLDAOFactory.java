@@ -14,7 +14,6 @@ import edu.uco.stl.data.dao.LendingDAO;
 import edu.uco.stl.data.dao.MonitorDAO;
 import edu.uco.stl.data.dao.ObservationDAO;
 import edu.uco.stl.data.dao.ProductDAO;
-import edu.uco.stl.data.dao.StlDAO;
 import edu.uco.stl.data.dao.relational.mysql.AdminMySQLDAO;
 import edu.uco.stl.data.dao.relational.mysql.AreaMySQLDAO;
 import edu.uco.stl.data.dao.relational.mysql.CompanyMySQLDAO;
@@ -24,7 +23,6 @@ import edu.uco.stl.data.dao.relational.mysql.LendingMySQLDAO;
 import edu.uco.stl.data.dao.relational.mysql.MonitorMySQLDAO;
 import edu.uco.stl.data.dao.relational.mysql.ObervationMySQLDAO;
 import edu.uco.stl.data.dao.relational.mysql.ProductMySQLDAO;
-import edu.uco.stl.data.dao.relational.mysql.StlMySQLDAO;
 
 final class MySQLDAOFactory extends DAOFactory {
 	
@@ -119,11 +117,6 @@ final class MySQLDAOFactory extends DAOFactory {
 	@Override
 	public ProductDAO getProductDAO() {
 		return new ProductMySQLDAO(connection);
-	}
-
-	@Override
-	public StlDAO getStlDAO() {
-		return new StlMySQLDAO(connection);
 	}
 
 }

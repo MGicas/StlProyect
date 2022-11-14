@@ -202,6 +202,10 @@ public class Messages {
 		public static final String TECHNICAL_PROBLEM_UPDATE_LENDING = "There was a problem trying to update lending";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_LENDING = "There was an unexpected problem trying to update lending";
 		
+		public static final String TECHNICAL_PROBLEM_CLOSE_LENDING = "There was a problem trying to close lending";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CLOSE_LENDING = "There was an unexpected problem trying to close lending";
+		
+		
 		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_LENDING = "There was a problem trying to prepare and execute query of an lending";
 		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_LENDING = "There was a problem trying to setting parameters values of an lending";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_LENDING = "There was an unexpected problem trying to setting parameters values of an lending";

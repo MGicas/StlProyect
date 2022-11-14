@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
 import edu.uco.stl.crosscutting.exception.crosscutting.DataCustomException;
 import edu.uco.stl.crosscutting.helper.ObjectHelper;
 import edu.uco.stl.crosscutting.helper.UUIDHelper;
@@ -215,15 +214,16 @@ public class LendingMySQLDAO extends DAORelational implements LendingDAO {
 		}
 		
 	}
-
+	
+	
 	@Override
-	public void close(LendingDTO lending) {
+	public void overcome(LendingDTO lending) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void overcome(LendingDTO lending) {
+	public void close(LendingDTO lending) {
 		// TODO Auto-generated method stub
 		
 	}
