@@ -27,7 +27,7 @@ public class Messages {
 		private DAORelational() {
 			super();
 		}
-		
+
 		public static final String TECHNICAL_CONNECTION_IS_CLOSED = "Connection already is closed";
 
 	}
@@ -62,9 +62,9 @@ public class Messages {
 
 		public static final String TECHNICAL_CONNECTION_INIT_TRANSACTION = "There was a problem trying to init transaction with the connection in MySqlDAOFactory";
 		public static final String TECHNICAL_CONNECTION_CLOSE_CONNECTION = "There was a problem trying to close connection with the current connection in MySqlDAOFactory";
-	    public static final String TECHNICAL_CONNECTION_CONFIRM_TRANSACTION = "There was a problem trying to confirm trasaction with the current connection in MySqlDAOFactory";
-	    public static final String TECHNICAL_CONNECTION_CONNECT_DATABASE = "There was a problem trying to connect to Data base ";
-	    public static final String TECHNICAL_CONNECTION_ROLLBACK_TRANSACTION = "There was a problem trying to rollback transaction";
+		public static final String TECHNICAL_CONNECTION_CONFIRM_TRANSACTION = "There was a problem trying to confirm trasaction with the current connection in MySqlDAOFactory";
+		public static final String TECHNICAL_CONNECTION_CONNECT_DATABASE = "There was a problem trying to connect to Data base ";
+		public static final String TECHNICAL_CONNECTION_ROLLBACK_TRANSACTION = "There was a problem trying to rollback transaction";
 	}
 
 	public static class UUIDHelper {
@@ -75,7 +75,7 @@ public class Messages {
 		public static final String TECHNICAL_UUID_FROM_STRING_INVALID = "The UUID to convert doesn't have a correct format";
 		public static final String TECHNICAL_UUID_FROM_STRING_UNEXPECTED_ERROR = "There was an unexpected error";
 	}
-	
+
 	public static class AdminMySQLDAO {
 
 		private AdminMySQLDAO() {
@@ -84,11 +84,10 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_CREATE_ADMIN = "There was a problem trying to create an admin";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_ADMIN = "There was an unexpected problem trying to create an admin";
-		
+
 		public static final String TECHNICAL_PROBLEM_UPDATE_ADMIN = "There was a problem trying to update admin";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_ADMIN = "There was an unexpected problem trying to update admin";
-		
-		
+
 		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_ADMIN = "There was a problem trying to prepare and execute query of an admin";
 		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_ADMIN = "There was a problem trying to setting parameters values of an admin";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_ADMIN = "There was an unexpected problem trying to setting parameters values of an admin";
@@ -97,7 +96,6 @@ public class Messages {
 		public static final String TECHNICAL_PROBLEM_FILLING_RESULTS_ADMIN = "There was a problem trying to fill results of an admin";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_ADMIN = "There was an unexpected problem trying to execute query of an admin";
 		public static final String TECHNICAL_PROBLEM_FILLING_ADMINDTO_ADMIN = "There was a problem trying to fill adminDTO of an admin";
-
 
 	}
 
@@ -120,7 +118,7 @@ public class Messages {
 		public static final String TECHNICAL_PROBLEM_FILLING_AREADTO_AREA = "There was a problem trying to fill areaDTO of an area";
 
 	}
-	
+
 	public static class CompanyMySQLDAO {
 
 		private CompanyMySQLDAO() {
@@ -132,7 +130,7 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_UPDATE_COMPANY = "There was a problem trying to update company";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_COMPANY = "There was an unexpected problem trying to update company";
-		
+
 		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_COMPANY = "There was a problem trying to prepare and execute query of an company";
 		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_COMPANY = "There was a problem trying to setting parameters values of an company";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_COMPANY = "There was an unexpected problem trying to setting parameters values of an company";
@@ -143,7 +141,7 @@ public class Messages {
 		public static final String TECHNICAL_PROBLEM_FILLING_COMPANYDTO_COMPANY = "There was a problem trying to fill companyDTO of an company";
 
 	}
-	
+
 	public static class InventoryMySQLDAO {
 
 		private InventoryMySQLDAO() {
@@ -155,18 +153,18 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_UPDATE_INVENTORY = "There was a problem trying to update inventory";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_INVENTORY = "There was an unexpected problem trying to update inventory";
-		
+
 		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_INVENTORY = "There was a problem trying to prepare and execute query of an inventory";
 		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_INVENTORY = "There was a problem trying to setting parameters values of an inventory";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_INVENTORY = "There was an unexpected problem trying to setting parameters values of an inventory";
-		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_INVENTORY= "There was a problem trying to execute query of an inventory";
+		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_INVENTORY = "There was a problem trying to execute query of an inventory";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_EXECUTING_QUERY_INVENTORY = "There was an unexpected problem trying to execute query of an inventory";
 		public static final String TECHNICAL_PROBLEM_FILLING_RESULTS_INVENTORY = "There was a problem trying to fill results of an inventory";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_INVENTORY = "There was an unexpected problem trying to execute query of an inventory";
 		public static final String TECHNICAL_PROBLEM_FILLING_INVENTORYDTO_INVENTORY = "There was a problem trying to fill inventoryDTO of an inventory";
 
 	}
-	
+
 	public static class LenderMySQLDAO {
 
 		private LenderMySQLDAO() {
@@ -178,18 +176,18 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_UPDATE_LENDER = "There was a problem trying to update lender";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_LENDER = "There was an unexpected problem trying to update lender";
-		
+
 		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_LENDER = "There was a problem trying to prepare and execute query of an lender";
 		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_LENDER = "There was a problem trying to setting parameters values of an lender";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_LENDER = "There was an unexpected problem trying to setting parameters values of an lender";
-		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_LENDER= "There was a problem trying to execute query of an lender";
+		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_LENDER = "There was a problem trying to execute query of an lender";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_EXECUTING_QUERY_LENDER = "There was an unexpected problem trying to execute query of an lender";
 		public static final String TECHNICAL_PROBLEM_FILLING_RESULTS_LENDER = "There was a problem trying to fill results of an lender";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_LENDER = "There was an unexpected problem trying to execute query of an lender";
 		public static final String TECHNICAL_PROBLEM_FILLING_LENDERDTO_LENDER = "There was a problem trying to fill lenderDTO of an lender";
 
 	}
-	
+
 	public static class LendingMySQLDAO {
 
 		private LendingMySQLDAO() {
@@ -201,22 +199,21 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_UPDATE_LENDING = "There was a problem trying to update lending";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_LENDING = "There was an unexpected problem trying to update lending";
-		
+
 		public static final String TECHNICAL_PROBLEM_CLOSE_LENDING = "There was a problem trying to close lending";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CLOSE_LENDING = "There was an unexpected problem trying to close lending";
-		
-		
+
 		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_LENDING = "There was a problem trying to prepare and execute query of an lending";
 		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_LENDING = "There was a problem trying to setting parameters values of an lending";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_LENDING = "There was an unexpected problem trying to setting parameters values of an lending";
-		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_LENDING= "There was a problem trying to execute query of an lending";
+		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_LENDING = "There was a problem trying to execute query of an lending";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_EXECUTING_QUERY_LENDING = "There was an unexpected problem trying to execute query of an lending";
 		public static final String TECHNICAL_PROBLEM_FILLING_RESULTS_LENDING = "There was a problem trying to fill results of an lending";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_LENDING = "There was an unexpected problem trying to execute query of an lending";
 		public static final String TECHNICAL_PROBLEM_FILLING_LENDINGDTO_LENDING = "There was a problem trying to fill lenderDTO of an lending";
 
 	}
-	
+
 	public static class MonitorMySQLDAO {
 
 		private MonitorMySQLDAO() {
@@ -228,21 +225,21 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_UPDATE_MONITOR = "There was a problem trying to update monitor";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_MONITOR = "There was an unexpected problem trying to update monitor";
-		
+
 		public static final String TECHNICAL_PROBLEM_DELETE_MONITOR = "There was a problem trying to delete monitor";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_DELETE_MONITOR = "There was an unexpected problem trying to delete monitor";
-		
+
 		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_MONITOR = "There was a problem trying to prepare and execute query of an monitor";
 		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_MONITOR = "There was a problem trying to setting parameters values of an monitor";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_MONITOR = "There was an unexpected problem trying to setting parameters values of an monitor";
-		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_MONITOR= "There was a problem trying to execute query of an monitor";
+		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_MONITOR = "There was a problem trying to execute query of an monitor";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_EXECUTING_QUERY_MONITOR = "There was an unexpected problem trying to execute query of an monitor";
 		public static final String TECHNICAL_PROBLEM_FILLING_RESULTS_MONITOR = "There was a problem trying to fill results of an monitor";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_MONITOR = "There was an unexpected problem trying to execute query of an monitor";
 		public static final String TECHNICAL_PROBLEM_FILLING_MONITORDTO_MONITOR = "There was a problem trying to fill lenderDTO of an monitor";
 
 	}
-	
+
 	public static class ObservationMySQLDAO {
 
 		private ObservationMySQLDAO() {
@@ -254,21 +251,21 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_UPDATE_OBSERVATION = "There was a problem trying to update observation";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_OBSERVATION = "There was an unexpected problem trying to update observation";
-		
+
 		public static final String TECHNICAL_PROBLEM_DELETE_OBSERVATION = "There was a problem trying to delete observation";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_DELETE_OBSERVATION = "There was an unexpected problem trying to delete observation";
-		
+
 		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_OBSERVATION = "There was a problem trying to prepare and execute query of an observation";
 		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_OBSERVATION = "There was a problem trying to setting parameters values of an observation";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_OBSERVATION = "There was an unexpected problem trying to setting parameters values of an observation";
-		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_OBSERVATION= "There was a problem trying to execute query of an observation";
+		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_OBSERVATION = "There was a problem trying to execute query of an observation";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_EXECUTING_QUERY_OBSERVATION = "There was an unexpected problem trying to execute query of an observation";
 		public static final String TECHNICAL_PROBLEM_FILLING_RESULTS_OBSERVATION = "There was a problem trying to fill results of an observation";
-		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_OBSERVATION= "There was an unexpected problem trying to execute query of an observation";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_OBSERVATION = "There was an unexpected problem trying to execute query of an observation";
 		public static final String TECHNICAL_PROBLEM_FILLING_OBSERVATIONDTO_OBSERVATION = "There was a problem trying to fill lenderDTO of an observation";
 
 	}
-	
+
 	public static class ProductMySQLDAO {
 
 		private ProductMySQLDAO() {
@@ -280,21 +277,21 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_UPDATE_PRODUCT = "There was a problem trying to update product";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_UPDATE_PRODUCT = "There was an unexpected problem trying to update product";
-		
+
 		public static final String TECHNICAL_PROBLEM_DELETE_PRODUCT = "There was a problem trying to delete product";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_DELETE_PRODUCT = "There was an unexpected problem trying to delete product";
-		
+
 		public static final String TECHNICAL_PROBLEM_PREPARING_AND_EXECUTING_QUERY_PRODUCT = "There was a problem trying to prepare and execute query of an product";
 		public static final String TECHNICAL_PROBLEM_SETTING_PARAMETERS_VALUES_PRODUCT = "There was a problem trying to setting parameters values of an product";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_SETTING_PARAMETERS_VALUES_PRODUCT = "There was an unexpected problem trying to setting parameters values of an product";
-		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_PRODUCT= "There was a problem trying to execute query of an product";
+		public static final String TECHNICAL_PROBLEM_EXECUTING_QUERY_PRODUCT = "There was a problem trying to execute query of an product";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_EXECUTING_QUERY_PRODUCT = "There was an unexpected problem trying to execute query of an product";
 		public static final String TECHNICAL_PROBLEM_FILLING_RESULTS_PRODUCT = "There was a problem trying to fill results of an product";
-		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_PRODUCT= "There was an unexpected problem trying to execute query of an product";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_FILLING_RESULTS_PRODUCT = "There was an unexpected problem trying to execute query of an product";
 		public static final String TECHNICAL_PROBLEM_FILLING_PRODUCTDTO_PRODUCT = "There was a problem trying to fill lenderDTO of an product";
 
 	}
-	
+
 	public static class StlMySQLDAO {
 
 		private StlMySQLDAO() {
@@ -303,6 +300,34 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_CREATE_STL = "There was a problem trying to create a stl";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATE_STL = "There was an unexpected problem trying to create a stl";
+
+	}
+
+	public static class UseCaseImpl {
+
+		private UseCaseImpl() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_VALIDATE_ADMIN_IDENTIFICATION = "There was a problem validating the identification, obligatory data*";
+		public static final String TECHNICAL_PROBLEM_VALIDATE_ADMIN_FIRSTNAME = "There was a problem validating the firstname, obligatory data*";
+		public static final String TECHNICAL_PROBLEM_VALIDATE_ADMIN_SECONDSURNAME = "Second surname is an obligatory data*";
+
+		public static final String TECHNICAL_PROBLEM_VALIDATE_COMPANY_NAME = "The name is obligatory data*";
+
+	}
+
+	public static class UseCaseCommand {
+
+		private UseCaseCommand() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_CREATING_ADMIN = "There was a problem creating the admin, try again";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATING_ADMIN = "There was an unexpected problem creating the admin, try again";
+
+		public static final String TECHNICAL_PROBLEM_CREATING_COMPANY = "There was a problem creating company, try again";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATING_COMPANY = "There was an unexpected problem creating company, try again";
 
 	}
 }

@@ -7,6 +7,8 @@ import static edu.uco.stl.crosscutting.helper.StringHelper.EMPTY;
 
 import java.util.UUID;
 
+import edu.uco.stl.crosscutting.helper.UUIDHelper;
+
 public class AdminDTO {
 
 	private UUID id;
@@ -106,4 +108,12 @@ public class AdminDTO {
 	public final String getIDAsString() {
 		return getUUIDAsString(null);
 	}
+	
+	public boolean exist() {
+        return !UUIDHelper.isDefaultUUID(id);
+    }
+	
+    public boolean notExist() {
+        return !exist();
+    }
 }

@@ -2,8 +2,10 @@ package edu.uco.stl.service.usecase.admin;
 
 import java.util.UUID;
 
+import edu.uco.stl.domain.AdminDTO;
+
 public interface FindAdminUseCase {
 	
-	void AdminDTO(UUID id);
+	AdminDTO execute(UUID id);
 
 }
