@@ -38,7 +38,7 @@ public class UseCaseCustomException extends StlCustomException{
 	}
 	public static final StlCustomException wrapException(final String message, final StlCustomException exception){
             if(exception.isTechinalException()){
-                throw UseCaseCustomException.CreateBusinessException(message, exception);
+                return UseCaseCustomException.CreateBusinessException(message, exception);
             }
             return exception;
 	}

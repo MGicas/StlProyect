@@ -18,23 +18,24 @@ import edu.uco.stl.service.usecase.command.admin.CreateAdminCommand;
 import edu.uco.stl.service.usecase.command.implementation.admin.CreateAdminCommandImpl;
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api/admin")
 public class AdminController {
 
 	private CreateAdminCommand createAdminCommand = new CreateAdminCommandImpl();
-
-	@GetMapping("/dummy")
-	public AdminDTO hola() {
+	
+	@GetMapping
+	public AdminDTO admin() {
 		return new AdminDTO();
 	}
 
-	@PostMapping
+	@PostMapping("/create")
 	public ResponseEntity<Response<AdminDTO>> create(@RequestBody AdminDTO admin) {
 
-		final Response<AdminDTO> response = new Response<>();
+		Response<AdminDTO> response = new Response<>();
 		HttpStatus httpStatus = HttpStatus.OK;
 
 		try {
+			
 			createAdminCommand.execute(admin);
 			List<AdminDTO> data = new ArrayList<>();
 			data.add(admin);

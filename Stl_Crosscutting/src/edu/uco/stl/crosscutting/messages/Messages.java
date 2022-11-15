@@ -65,6 +65,7 @@ public class Messages {
 		public static final String TECHNICAL_CONNECTION_CONFIRM_TRANSACTION = "There was a problem trying to confirm trasaction with the current connection in MySqlDAOFactory";
 		public static final String TECHNICAL_CONNECTION_CONNECT_DATABASE = "There was a problem trying to connect to Data base ";
 		public static final String TECHNICAL_CONNECTION_ROLLBACK_TRANSACTION = "There was a problem trying to rollback transaction";
+		public static final String TECHNICAL_PROBLEM_CONNECT_DATABASE="There was a problem connecting the database";
 	}
 
 	public static class UUIDHelper {
