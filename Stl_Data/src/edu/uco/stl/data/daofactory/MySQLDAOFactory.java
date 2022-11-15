@@ -1,6 +1,9 @@
 package edu.uco.stl.data.daofactory;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import edu.uco.stl.crosscutting.exception.crosscutting.CrosscuttingCustomException;
 import edu.uco.stl.crosscutting.exception.crosscutting.DataCustomException;
 import edu.uco.stl.crosscutting.helper.SqlConnectionHelper;
@@ -25,25 +28,38 @@ import edu.uco.stl.data.dao.relational.mysql.ObervationMySQLDAO;
 import edu.uco.stl.data.dao.relational.mysql.ProductMySQLDAO;
 
 final class MySQLDAOFactory extends DAOFactory {
-	
+
 	private Connection connection;
-	
-	 public MySQLDAOFactory(){
-	        openConnection();
-	    }
+
+	private String host = "mysql-96074-0.cloudclusters.net";
+	private String database = "d6be0iacrla2jt";
+	private String user = "root";
+	private String password = "HPP3ZMsQ";
+
+	public MySQLDAOFactory() {
+		openConnection();
+	}
 
 	@Override
 	protected void openConnection() {
-		// TODO Auto-generated method stub
-		
+
+		final String url = "jdbc:mysql://" + host + ":3306/" + database;
+		try {
+			connection = DriverManager.getConnection(url, user, password);
+		} catch (SQLException exception) {
+			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_PROBLEM_CONNECT_DATABASE,
+					exception);
+		}
+
 	}
 
 	@Override
 	public void initTransction() {
 		try {
-		SqlConnectionHelper.initTrasaction(connection);
-		}catch (CrosscuttingCustomException exception) {
-			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_CONNECTION_INIT_TRANSACTION, exception);
+			SqlConnectionHelper.initTrasaction(connection);
+		} catch (CrosscuttingCustomException exception) {
+			throw DataCustomException
+					.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_CONNECTION_INIT_TRANSACTION, exception);
 		}
 	}
 
@@ -52,7 +68,8 @@ final class MySQLDAOFactory extends DAOFactory {
 		try {
 			SqlConnectionHelper.commitTrasaction(connection);
 		} catch (CrosscuttingCustomException exception) {
-			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_CONNECTION_CONFIRM_TRANSACTION, exception);
+			throw DataCustomException.CreateTechnicalException(
+					Messages.MySqlFactory.TECHNICAL_CONNECTION_CONFIRM_TRANSACTION, exception);
 		}
 	}
 
@@ -61,7 +78,8 @@ final class MySQLDAOFactory extends DAOFactory {
 		try {
 			SqlConnectionHelper.rollbackTrasaction(connection);
 		} catch (CrosscuttingCustomException exception) {
-			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_CONNECTION_ROLLBACK_TRANSACTION, exception);
+			throw DataCustomException.CreateTechnicalException(
+					Messages.MySqlFactory.TECHNICAL_CONNECTION_ROLLBACK_TRANSACTION, exception);
 		}
 	}
 
@@ -70,7 +88,8 @@ final class MySQLDAOFactory extends DAOFactory {
 		try {
 			SqlConnectionHelper.closeConnection(connection);
 		} catch (CrosscuttingCustomException exception) {
-			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_CONNECTION_CLOSE_CONNECTION, exception);
+			throw DataCustomException
+					.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_CONNECTION_CLOSE_CONNECTION, exception);
 		}
 	}
 
@@ -93,7 +112,7 @@ final class MySQLDAOFactory extends DAOFactory {
 	public InventoryDAO getInventoryDAO() {
 		return new InventoryMySQLDAO(connection);
 	}
-	
+
 	@Override
 	public LenderDAO getLenderDAO() {
 		return new LenderMySQLDAO(connection);

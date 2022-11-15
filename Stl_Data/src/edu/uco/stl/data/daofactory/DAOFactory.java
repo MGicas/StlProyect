@@ -14,6 +14,7 @@ import edu.uco.stl.crosscutting.exception.crosscutting.DataCustomException;
 import edu.uco.stl.crosscutting.messages.Messages;
 
 public abstract class DAOFactory {
+	
 
 	public static final DAOFactory getDAOFactory(DAOFactoryType factory) {
 

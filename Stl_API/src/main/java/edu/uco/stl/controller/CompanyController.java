@@ -27,7 +27,7 @@ public class CompanyController {
 
 	private CreateCompanyCommand createCompanyCommand = new CreateCompanyCommandImp();
 
-	@GetMapping("/dummy")
+	@GetMapping("/company")
 	public CompanyDTO hola() {
 		return new CompanyDTO();
 	}
