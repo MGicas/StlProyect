@@ -12,13 +12,14 @@ import edu.uco.stl.service.usecase.implementation.company.CreateCompanyUseCaseIm
 
 public class CreateCompanyCommandImp implements CreateCompanyCommand {
 
-	private final DAOFactory factory = DAOFactory.getDAOFactory(DAOFactoryType.MYSQL);
+	private DAOFactory factory;
 	private final CreateCompanyUseCase usecase = new CreateCompanyUseCaseImpl(factory);
 
 	@Override
 	public void execute(CompanyDTO company) {
 
 		try {
+			factory = DAOFactory.getDAOFactory(DAOFactoryType.MYSQL);
 			factory.initTransction();
 			usecase.execute(company);
 			factory.confirmTransaction();

@@ -12,13 +12,14 @@ import edu.uco.stl.service.usecase.implementation.admin.CreateAdminUseCaseImpl;
 
 public class CreateAdminCommandImpl implements CreateAdminCommand {
 
-	private final DAOFactory factory = DAOFactory.getDAOFactory(DAOFactoryType.MYSQL);
+	private DAOFactory factory;
 	private final CreateAdminUseCase useCase = new CreateAdminUseCaseImpl(factory);
 
 	@Override
 	public void execute(AdminDTO admin) {
 		
 		try {
+			factory = DAOFactory.getDAOFactory(DAOFactoryType.MYSQL);
 			factory.initTransction();
 			useCase.execute(admin);
 			factory.confirmTransaction();

@@ -11,5 +11,4 @@ public class StlApiApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StlApiApplication.class, args);
 	}
-
 }

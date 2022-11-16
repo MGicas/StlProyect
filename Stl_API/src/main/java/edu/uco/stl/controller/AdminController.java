@@ -23,7 +23,7 @@ public class AdminController {
 
 	private CreateAdminCommand createAdminCommand = new CreateAdminCommandImpl();
 	
-	@GetMapping
+	@GetMapping("/get")
 	public AdminDTO admin() {
 		return new AdminDTO();
 	}

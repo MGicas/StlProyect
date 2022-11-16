@@ -57,7 +57,7 @@ public class SqlConnectionHelper {
             if(!connectionIsOpen(connection)){
                 throw CrosscuttingCustomException.CreateTechnicalException(Messages.MySQLConnectionHelper.TECHNICAL_CONNECTION_IS_CLOSED_FOR_COMMIT_TRANSACTION);
             }
-            connection.setAutoCommit(false);
+            connection.commit();
         } catch (CrosscuttingCustomException exception) {
            throw exception;
         }catch (SQLException exception) {
