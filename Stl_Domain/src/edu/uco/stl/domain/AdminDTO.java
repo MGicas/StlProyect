@@ -96,14 +96,7 @@ public class AdminDTO {
 	public final String getSecondSurname() {
 		return secondSurname;
 	}
-	
-	public final String getSurname() {
-		return getFirstSurname()+" " + getSecondSurname().trim();
-	}
-	
-	public final String getName() {
-		return getFirstname()+" " + getSecondName().trim() + " " + getSurname();
-	}
+
 	
 	public final String getIDAsString() {
 		return getUUIDAsString(null);

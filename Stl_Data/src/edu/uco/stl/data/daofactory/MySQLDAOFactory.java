@@ -43,7 +43,7 @@ final class MySQLDAOFactory extends DAOFactory {
 	@Override
 	protected void openConnection() {
 
-		final String url = "jdbc:mysql://" + host + ":3306/" + database;
+		final String url = "jdbc:mysql://" + host + ":8090/" + database;
 		try {
 			connection = DriverManager.getConnection(url, user, password);
 		} catch (SQLException exception) {
