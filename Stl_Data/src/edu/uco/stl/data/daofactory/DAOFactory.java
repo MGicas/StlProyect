@@ -14,13 +14,15 @@ import edu.uco.stl.crosscutting.exception.crosscutting.DataCustomException;
 import edu.uco.stl.crosscutting.messages.Messages;
 
 public abstract class DAOFactory {
-	
 
 	public static final DAOFactory getDAOFactory(DAOFactoryType factory) {
 
 		DAOFactory daoFactory;
 
 		switch (factory) {
+		case MYSQL:
+			daoFactory = new MySQLDAOFactory();
+			break;
 		case SQLSERVER:
 			throw DataCustomException.CreateTechnicalException(Messages.DAOFactory.TECHNICAL_SQL_NOT_IMPLEMENTED);
 		case CASSANDRA:
@@ -31,9 +33,6 @@ public abstract class DAOFactory {
 			throw DataCustomException.CreateTechnicalException(Messages.DAOFactory.TECHNICAL_MONGODB_NOT_IMPLEMENTED);
 		case ORACLE:
 			throw DataCustomException.CreateTechnicalException(Messages.DAOFactory.TECHNICAL_ORACLE_NOT_IMPLEMENTED);
-		case MYSQL:
-			daoFactory = new MySQLDAOFactory();
-			break;
 		case POSTGRESQL:
 			throw DataCustomException
 					.CreateTechnicalException(Messages.DAOFactory.TECHNICAL_POSTGRESQL_NOT_IMPLEMENTED);

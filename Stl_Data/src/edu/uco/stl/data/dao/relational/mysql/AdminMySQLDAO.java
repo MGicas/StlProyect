@@ -60,11 +60,11 @@ public class AdminMySQLDAO extends DAORelational implements AdminDAO {
 	private final void createSelectFrom(final StringBuilder sqlBuilder) {
 
 		sqlBuilder.append("SELECT ad.id AS AdminId, ");
-		sqlBuilder.append("       ad.identification AS AdminIdentification ");
-		sqlBuilder.append("       ad.firstName AS AdminFirstName ");
-		sqlBuilder.append("       ad.secondName AS AdminSecondName ");
-		sqlBuilder.append("       ad.firstSurname AS AdminFirstSurname");
-		sqlBuilder.append("       ad.secondSurname AS AdminSecondSurname");
+		sqlBuilder.append("       ad.identification AS AdminIdentification, ");
+		sqlBuilder.append("       ad.firstName AS AdminFirstName, ");
+		sqlBuilder.append("       ad.secondName AS AdminSecondName, ");
+		sqlBuilder.append("       ad.firstSurname AS AdminFirstSurname,");
+		sqlBuilder.append("       ad.secondSurname AS AdminSecondSurname ");
 		sqlBuilder.append("FROM bd_conexionstl.admin ad ");
 	}
 
@@ -74,7 +74,7 @@ public class AdminMySQLDAO extends DAORelational implements AdminDAO {
 
 		if (!ObjectHelper.isNull(admin)) {
 			if (!UUIDHelper.isDefaultUUID(admin.getId())) {
-				sqlBuilder.append("WHERE AdminId = ? ");
+				sqlBuilder.append("WHERE id = ? ");
 				setWhere = false;
 				parameters.add(admin.getIDAsString());
 			}

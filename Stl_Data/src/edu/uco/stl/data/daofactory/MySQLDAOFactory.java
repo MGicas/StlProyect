@@ -31,11 +31,10 @@ final class MySQLDAOFactory extends DAOFactory {
 
 	private Connection connection;
 
-	/*private String host = "localhost";
-	private String database = "root@localhost";
+	private String database = "bd_conexionstl";
 	private String user = "root";
 	private String password = "admin";
-*/
+
 	public MySQLDAOFactory() {
 		openConnection();
 	}
@@ -43,11 +42,10 @@ final class MySQLDAOFactory extends DAOFactory {
 	@Override
 	protected void openConnection() {
 		
-		final String url = "jdbc:mysql://localhost:8090/db_conexionstl" + "database=root@localhost" + "user = root" + "password = admin";
+		final String url = "jdbc:mysql://localhost:3306/" + database;
 
-		//final String url = "jdbc:mysql://" + host + ":8090/" + database;
 		try {
-			connection = DriverManager.getConnection(url);
+			connection = DriverManager.getConnection(url,user,password);
 		} catch (SQLException exception) {
 			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_PROBLEM_CONNECT_DATABASE,
 					exception);

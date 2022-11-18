@@ -14,17 +14,16 @@ import edu.uco.stl.service.usecase.implementation.admin.FindAllAdminUseCaseImpl;
 
 public class FindAllAdminComandImpl implements FindAllAdminCommand {
 	
-	private DAOFactory factory;
+	private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactoryType.MYSQL);
 	private final FindAllAdminUsecase useCase = new FindAllAdminUseCaseImpl(factory);
 
 
 	@Override
-	public List<AdminDTO> get() {
+	public List<AdminDTO> execute() {
 		try {
-			factory = DAOFactory.getDAOFactory(DAOFactoryType.MYSQL);
-//			factory.initTransction();
-//			List<AdminDTO> admin = useCase.execute();
-//			factory.confirmTransaction();
+			factory.initTransction();
+			List<AdminDTO> admin = useCase.execute();
+			factory.confirmTransaction();
 			return factory.getAdminDAO().find(null);
 		} catch (UseCaseCustomException exception) {
 			factory.cancelTransaction();

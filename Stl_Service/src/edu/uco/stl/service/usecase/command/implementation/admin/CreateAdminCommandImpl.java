@@ -12,14 +12,13 @@ import edu.uco.stl.service.usecase.implementation.admin.CreateAdminUseCaseImpl;
 
 public class CreateAdminCommandImpl implements CreateAdminCommand {
 
-	private DAOFactory factory;
+	private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactoryType.MYSQL);
 	private final CreateAdminUseCase useCase = new CreateAdminUseCaseImpl(factory);
 
 	@Override
 	public void execute(AdminDTO admin) {
 		
 		try {
-			factory = DAOFactory.getDAOFactory(DAOFactoryType.MYSQL);
 			factory.initTransction();
 			useCase.execute(admin);
 			factory.confirmTransaction();
@@ -34,8 +33,6 @@ public class CreateAdminCommandImpl implements CreateAdminCommand {
 			factory.cancelTransaction();
 			throw UseCaseCustomException.CreateBusinessException(
 					Messages.UseCaseCommand.TECHNICAL_UNEXPECTED_PROBLEM_CREATING_ADMIN, exception);
-		} finally {
-			factory.closeTransaction();
 		}
 	}
 }

@@ -4,20 +4,27 @@ import java.util.UUID;
 
 import edu.uco.stl.crosscutting.exception.crosscutting.UseCaseCustomException;
 import edu.uco.stl.crosscutting.execption.StlCustomException;
+import edu.uco.stl.crosscutting.helper.ObjectHelper;
 import edu.uco.stl.crosscutting.helper.StringHelper;
 import edu.uco.stl.crosscutting.messages.Messages;
 import edu.uco.stl.data.daofactory.DAOFactory;
 import edu.uco.stl.domain.AdminDTO;
 import edu.uco.stl.service.usecase.admin.CreateAdminUseCase;
+import edu.uco.stl.service.usecase.admin.FindAdminByIdentifyUsecase;
+import edu.uco.stl.service.usecase.admin.FindAdminUseCase;
+import edu.uco.stl.service.usecase.admin.FindAllAdminUsecase;
+
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getNewUUID;
 
 
 public class CreateAdminUseCaseImpl implements CreateAdminUseCase{
 
 	private final DAOFactory factory;
+	private final FindAdminByIdentifyUsecase findAdmin;
 	
 	public CreateAdminUseCaseImpl(DAOFactory factory) {
 		this.factory = factory;
+		this.findAdmin = new FindAdminByIdentifyUsecaseImpl(factory);
 	}
 	
 	
@@ -61,7 +68,7 @@ public class CreateAdminUseCaseImpl implements CreateAdminUseCase{
 	
 	private final String validateIdentification(String identification) {
 		if(StringHelper.isDefaultString(identification)) {
-			throw UseCaseCustomException.CreateTechnicalException(Messages.UseCaseImpl.TECHNICAL_PROBLEM_VALIDATE_ADMIN_IDENTIFICATION);
+			throw UseCaseCustomException.CreateUserException(Messages.UseCaseImpl.TECHNICAL_PROBLEM_VALIDATE_ADMIN_IDENTIFICATION);
 		}
 		return identification;
 	}

@@ -39,6 +39,9 @@ public class AdminDTO {
 	public static AdminDTO create(UUID id, String identification, String firstName, String secondName, String firstSurname, String secondSurname) {
 		return new AdminDTO(id, identification, firstName, secondName, firstSurname, secondSurname);
 	}
+	public static AdminDTO create(String identification) {
+		return new AdminDTO(getDefaultUUID(null), identification, EMPTY, EMPTY, EMPTY, EMPTY);
+	}
 	
 	public static final AdminDTO create(String id, String identification, String firstName, String secondName, String firstSurname, String secondSurname) {
 		return new AdminDTO(getUUIDFromString(id), identification, firstName, secondName, firstSurname, secondSurname);

@@ -31,13 +31,13 @@ public class AdminController {
 	public AdminDTO admin() {
 		return new AdminDTO();
 	}
-
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/create")
 	public ResponseEntity<Response<AdminDTO>> create(@RequestBody AdminDTO admin) {
 
 		Response<AdminDTO> response = new Response<>();
 		HttpStatus httpStatus = HttpStatus.OK;
-
+		
 		try {
 			
 			createAdminCommand.execute(admin);
@@ -70,14 +70,13 @@ public class AdminController {
 		HttpStatus httpStatus = HttpStatus.NOT_FOUND;
 
 		try {
-			FindAllAdminCommand findAll = new FindAllAdminComandImpl();
-			List<AdminDTO> admins = findAll.get();
+			List<AdminDTO> admins = AdminController.findAll.execute();
 			response.setData(admins);
 			response.addSuccessMessage("usuario encontrado");
 		} catch (StlCustomException exception) {
 			httpStatus = HttpStatus.BAD_REQUEST;
 			if (exception.isTechinalException()) {
-				response.addSuccessMessage(Messages.AdminController.USER_ADMIN_CREATE_ERROR);
+				response.addSuccessMessage("no se encontró nada");
 			} else {
 				response.addErrorMessage(exception.getMessage());
 			}
@@ -90,32 +89,5 @@ public class AdminController {
 
 		return new ResponseEntity<>(response, httpStatus);
 	}
-	/*public static void main(String[] args) {
-		DAOFactory factory;
-		FindAllAdminUsecase find = new FindAllAdminUseCaseImpl(factory);
-		String ba = "93f6e7de-7b6b-49ea-9d9b-48c92b80231a";
-		AdminDTO admin = new AdminDTO().create(UUIDHelper.getUUIDFromString(ba));
-		System.out.println(find.);
-	}
-	
-		public static List<AdminDTO> FindAd() {
-
-			Response<AdminDTO> response = new Response<>();
-				List<AdminDTO> admins = findAll.execute();
-				response.setData(admins);
-				response.addSuccessMessage("usuario encontrado");
-
-
-			 return admins;
-			
-		}
-		public static void main(String[] args) {
-			 System.out.println(FindAd()); 
-		}
-			 */
-			 
-	
-
-
 
 }
