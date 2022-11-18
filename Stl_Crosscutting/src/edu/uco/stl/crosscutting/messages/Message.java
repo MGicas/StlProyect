@@ -53,7 +53,7 @@ public class Message {
 	}
 
 	public void setContent(final String content) {
-		this.level = ObjectHelper.getDefaultIfNull(level, MessageLevel.FATAL);
+		Content = StringHelper.applyTrim(content);
 	}
 
 }

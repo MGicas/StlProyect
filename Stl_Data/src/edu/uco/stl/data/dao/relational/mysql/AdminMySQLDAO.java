@@ -23,7 +23,7 @@ public class AdminMySQLDAO extends DAORelational implements AdminDAO {
 
 	@Override
 	public void create(AdminDTO admin) {
-		final var sql = "INSERT INTO admin(id, identification, firstName, secondName, firstSurname, secondSurname) VALUES (?, ?, ?, ?, ?, ?)";
+		final var sql = "INSERT INTO bd_conexionstl.admin(id, identification, firstName, secondName, firstSurname, secondSurname) VALUES (?, ?, ?, ?, ?, ?)";
 
 		try (final var preparedStatement = getConnection().prepareStatement(sql)) {
 
@@ -65,7 +65,7 @@ public class AdminMySQLDAO extends DAORelational implements AdminDAO {
 		sqlBuilder.append("       ad.secondName AS AdminSecondName ");
 		sqlBuilder.append("       ad.firstSurname AS AdminFirstSurname");
 		sqlBuilder.append("       ad.secondSurname AS AdminSecondSurname");
-		sqlBuilder.append("FROM admin ad ");
+		sqlBuilder.append("FROM bd_conexionstl.admin ad ");
 	}
 
 	private final void createWhere(final StringBuilder sqlBuilder, final AdminDTO admin,
@@ -184,7 +184,7 @@ public class AdminMySQLDAO extends DAORelational implements AdminDAO {
 
 	@Override
 	public void update(AdminDTO admin) {
-		final var sql = "UPDATE admin SET id = ?, identification = ?, firstName = ? , secondName = ? , firstSurname = ? , secondSurname = ?";
+		final var sql = "UPDATE bd_conexionstl.admin SET id = ?, identification = ?, firstName = ? , secondName = ? , firstSurname = ? , secondSurname = ?";
 
 		try (final var preparedStatement = getConnection().prepareStatement(sql)) {
 

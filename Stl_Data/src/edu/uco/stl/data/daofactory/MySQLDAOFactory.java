@@ -31,21 +31,23 @@ final class MySQLDAOFactory extends DAOFactory {
 
 	private Connection connection;
 
-	private String host = "mysql-96074-0.cloudclusters.net";
-	private String database = "d6be0iacrla2jt";
+	/*private String host = "localhost";
+	private String database = "root@localhost";
 	private String user = "root";
-	private String password = "HPP3ZMsQ";
-
+	private String password = "admin";
+*/
 	public MySQLDAOFactory() {
 		openConnection();
 	}
 
 	@Override
 	protected void openConnection() {
+		
+		final String url = "jdbc:mysql://localhost:8090/db_conexionstl" + "database=root@localhost" + "user = root" + "password = admin";
 
-		final String url = "jdbc:mysql://" + host + ":8090/" + database;
+		//final String url = "jdbc:mysql://" + host + ":8090/" + database;
 		try {
-			connection = DriverManager.getConnection(url, user, password);
+			connection = DriverManager.getConnection(url);
 		} catch (SQLException exception) {
 			throw DataCustomException.CreateTechnicalException(Messages.MySqlFactory.TECHNICAL_PROBLEM_CONNECT_DATABASE,
 					exception);
