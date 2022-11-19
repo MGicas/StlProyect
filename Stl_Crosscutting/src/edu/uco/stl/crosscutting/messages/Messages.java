@@ -317,6 +317,21 @@ public class Messages {
 		public static final String TECHNICAL_PROBLEM_VALIDATE_COMPANY_NAME = "The name is obligatory data*";
 
 	}
+	
+	public static class UseCaseLendingImpl {
+
+		private UseCaseLendingImpl() {
+			super();
+		}
+
+		public static final String TECHNICAL_PROBLEM_VALIDATE_LENDING_LOANQUANTITY = "There was a problem validating the loan quantity, obligatory data*";
+		public static final String TECHNICAL_PROBLEM_VALIDATE_LENDING_DATE = "There was a problem validating the date, obligatory data*";
+		public static final String TECHNICAL_PROBLEM_VALIDATE_LENDING_MONITOR_RECIEVE = "Monitor recieve is an obligatory data*";
+		public static final String TECHNICAL_PROBLEM_VALIDATE_LENDING_MONITOR_GIVE = "Monitor give is an obligatory data*";
+		public static final String TECHNICAL_PROBLEM_VALIDATE_LENDING_LENDER_NAME = "Lender name is an obligatory data*";
+		public static final String TECHNICAL_PROBLEM_VALIDATE_LENDING_PRODUCT = "There was a problem validating the product, obligatory data*";
+
+	}
 
 	public static class UseCaseCommand {
 
@@ -329,6 +344,9 @@ public class Messages {
 
 		public static final String TECHNICAL_PROBLEM_CREATING_COMPANY = "There was a problem creating company, try again";
 		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATING_COMPANY = "There was an unexpected problem creating company, try again";
+		
+		public static final String TECHNICAL_PROBLEM_CREATING_LENDING = "There was a problem creating lending, try again";
+		public static final String TECHNICAL_UNEXPECTED_PROBLEM_CREATING_LENDING = "There was an unexpected problem creating lending, try again";
 
 	}
 	
@@ -353,6 +371,18 @@ public class Messages {
 		public static final String USER_COMPANY_CREATE_SUCCESSFULLY = "The company has been created successfully";
 		public static final String USER_COMPANY_CREATE_ERROR = "There was an error trayig to create the company, try again";
 		public static final String USER_COMPANY_CREATE_UNEXPECTED_ERROR = "There was a unexpected error trayig to create the company, try again";
+
+	}
+	
+	public static class LendingController {
+
+		private LendingController() {
+			super();
+		}
+
+		public static final String USER_LENDING_CREATE_SUCCESSFULLY = "The company has been created successfully";
+		public static final String USER_LENDING_CREATE_ERROR = "There was an error trayig to create the company, try again";
+		public static final String USER_LENDING_CREATE_UNEXPECTED_ERROR = "There was a unexpected error trayig to create the company, try again";
 
 	}
 	

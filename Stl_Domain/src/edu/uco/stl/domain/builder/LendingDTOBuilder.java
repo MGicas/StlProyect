@@ -1,6 +1,5 @@
 package edu.uco.stl.domain.builder;
 
-import java.util.Date;
 import java.util.UUID;
 
 import edu.uco.stl.domain.LendingDTO;
@@ -10,7 +9,6 @@ public class LendingDTOBuilder {
 	private UUID id;
 	private String product;
 	private int loanQuantity;
-	private Date Date;
 	private String monitorRecieve; 
 	private String monitorGive;
 	private String lenderName;
@@ -38,10 +36,6 @@ public class LendingDTOBuilder {
 		return this;
 	}
 
-	public LendingDTOBuilder setDate(Date date) {
-		Date = date;
-		return this;
-	}
 
 	public LendingDTOBuilder setMonitorRecieve(String monitorRecieve) {
 		this.monitorRecieve = monitorRecieve;
@@ -59,7 +53,7 @@ public class LendingDTOBuilder {
 	}
 	
 	public final LendingDTO build(){
-		return LendingDTO.create(id, product, loanQuantity, Date, monitorRecieve, monitorGive, lenderName);
+		return LendingDTO.create(id, product, loanQuantity, monitorRecieve, monitorGive, lenderName);
 	}
 	
 }

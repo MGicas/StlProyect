@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import edu.uco.stl.controller.response.Response;
 import edu.uco.stl.crosscutting.execption.StlCustomException;
 import edu.uco.stl.crosscutting.messages.Messages;
@@ -26,20 +27,21 @@ public class AdminController {
 
 	private CreateAdminCommand createAdminCommand = new CreateAdminCommandImpl();
 	private static FindAllAdminCommand findAll = new FindAllAdminComandImpl();
-	
-	@GetMapping("/")
+
+	@GetMapping("/dummy")
 	public AdminDTO admin() {
 		return new AdminDTO();
 	}
-	@CrossOrigin(origins = "http://localhost:4200")
-	@PostMapping("/create")
+
+	// @CrossOrigin(origins = "http://localhost:4200")
+	@PostMapping
 	public ResponseEntity<Response<AdminDTO>> create(@RequestBody AdminDTO admin) {
 
 		Response<AdminDTO> response = new Response<>();
 		HttpStatus httpStatus = HttpStatus.OK;
-		
+
 		try {
-			
+
 			createAdminCommand.execute(admin);
 			List<AdminDTO> data = new ArrayList<>();
 			data.add(admin);
@@ -62,6 +64,7 @@ public class AdminController {
 
 		return new ResponseEntity<>(response, httpStatus);
 	}
+
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/find")
 	public ResponseEntity<Response<AdminDTO>> FindAdmin() {

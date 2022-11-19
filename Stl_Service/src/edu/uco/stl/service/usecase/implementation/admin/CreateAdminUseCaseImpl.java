@@ -4,15 +4,12 @@ import java.util.UUID;
 
 import edu.uco.stl.crosscutting.exception.crosscutting.UseCaseCustomException;
 import edu.uco.stl.crosscutting.execption.StlCustomException;
-import edu.uco.stl.crosscutting.helper.ObjectHelper;
 import edu.uco.stl.crosscutting.helper.StringHelper;
 import edu.uco.stl.crosscutting.messages.Messages;
 import edu.uco.stl.data.daofactory.DAOFactory;
 import edu.uco.stl.domain.AdminDTO;
 import edu.uco.stl.service.usecase.admin.CreateAdminUseCase;
 import edu.uco.stl.service.usecase.admin.FindAdminByIdentifyUsecase;
-import edu.uco.stl.service.usecase.admin.FindAdminUseCase;
-import edu.uco.stl.service.usecase.admin.FindAllAdminUsecase;
 
 import static edu.uco.stl.crosscutting.helper.UUIDHelper.getNewUUID;
 
@@ -34,15 +31,14 @@ public class CreateAdminUseCaseImpl implements CreateAdminUseCase{
 		try {
 			final UUID id = getNewUUID();
 			final String identification = validateIdentification(admin.getIdentification());
-			final String firstName = validateFirstName(admin.getFirstname());
+			final String firstName = validateFirstName(admin.getFirstName());
 			final String secondName = admin.getSecondName();
 			final String firstSurname = validateFirstSurname(admin.getFirstSurname());
 			final String secondSurname= admin.getSecondSurname();
 			
 			admin.setId(id);
 			admin.setIdentification(identification);
-			admin.setFirstname(firstName);
-			admin.setFirstname(firstName);
+			admin.setFirstName(firstName);
 			admin.setSecondName(secondName);
 			admin.setFirstSurname(firstSurname);
 			admin.setSecondSurname(secondSurname);

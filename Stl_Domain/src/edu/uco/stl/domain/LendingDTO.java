@@ -8,6 +8,7 @@ import static edu.uco.stl.crosscutting.helper.StringHelper.EMPTY;
 import java.util.Date;
 import java.util.UUID;
 
+
 public class LendingDTO {
 	
 	private UUID id;
@@ -23,33 +24,37 @@ public class LendingDTO {
 		setId(getDefaultUUID(getId()));
 		setProduct(EMPTY);
 		setLoanQuantity(ZERO);
-		setDate(null);
 		setMonitorRecieve(EMPTY);
 		setMonitorGive(EMPTY);
 		setLenderName(EMPTY);
 	}
 	
-	public LendingDTO(UUID id, String product, int loanQuantity, java.util.Date date, String monitorRecieve, String monitorGive,
+	public LendingDTO(UUID id, String product, int loanQuantity, String monitorRecieve, String monitorGive,
 			String lenderName) {
 		
 		setId(getDefaultUUID(getId()));
 		setProduct(product);
 		setLoanQuantity(loanQuantity);
-		setDate(date);
 		setMonitorRecieve(monitorRecieve);
 		setMonitorGive(monitorGive);
 		setLenderName(lenderName);
 	}
 
-	public static LendingDTO create(UUID id, String product, int loanQuantity, java.util.Date date, String monitorRecieve, String monitorGive,
+	public static LendingDTO create(UUID id, String product, int loanQuantity, String monitorRecieve, String monitorGive,
 			String lenderName) {
-		return new LendingDTO(id, product, loanQuantity, date, monitorRecieve, monitorGive, lenderName);
+		return new LendingDTO(id, product, loanQuantity, monitorRecieve, monitorGive, lenderName);
 	}
 	
-	public static final LendingDTO create (String id, String product, int loanQuantity, java.util.Date date, String monitorRecieve, String monitorGive,
+	public static final LendingDTO create (String id, String product, int loanQuantity, String monitorRecieve, String monitorGive,
 			String lenderName) {
-		return new LendingDTO(getUUIDFromString(id), product, loanQuantity, date, monitorRecieve, monitorGive, lenderName);
+		return new LendingDTO(getUUIDFromString(id), product, loanQuantity, monitorRecieve, monitorGive, lenderName);
 	}
+	
+	
+	 public static final LendingDTO create(final UUID id){
+	        return new LendingDTO(getDefaultUUID(id), EMPTY, ZERO,EMPTY,EMPTY,EMPTY);
+	    }
+
 
 	public final void setId(UUID id) {
 		this.id = getDefaultUUID(id);

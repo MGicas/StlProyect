@@ -29,7 +29,7 @@ public class AdminMySQLDAO extends DAORelational implements AdminDAO {
 
 			preparedStatement.setString(1, admin.getIDAsString());
 			preparedStatement.setString(2, admin.getIdentification());
-			preparedStatement.setString(3, admin.getFirstname());
+			preparedStatement.setString(3, admin.getFirstName());
 			preparedStatement.setString(4, admin.getSecondName());
 			preparedStatement.setString(5, admin.getFirstSurname());
 			preparedStatement.setString(6, admin.getSecondSurname());
@@ -83,10 +83,10 @@ public class AdminMySQLDAO extends DAORelational implements AdminDAO {
 				setWhere = false;
 				parameters.add(admin.getIdentification());
 			}
-			if (!isDefaultString(admin.getFirstname())) {
+			if (!isDefaultString(admin.getFirstName())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("firstName = ? ");
 				setWhere = false;
-				parameters.add(admin.getFirstname());
+				parameters.add(admin.getFirstName());
 			}
 			if (!isDefaultString(admin.getSecondName())) {
 				sqlBuilder.append(setWhere ? "WHERE " : "AND ").append("secondName = ? ");
@@ -190,7 +190,7 @@ public class AdminMySQLDAO extends DAORelational implements AdminDAO {
 
 			preparedStatement.setString(1, admin.getIDAsString());
 			preparedStatement.setString(1, admin.getIdentification());
-			preparedStatement.setString(1, admin.getFirstname());
+			preparedStatement.setString(1, admin.getFirstName());
 			preparedStatement.setString(1, admin.getSecondName());
 			preparedStatement.setString(1, admin.getFirstSurname());
 			preparedStatement.setString(1, admin.getSecondSurname());

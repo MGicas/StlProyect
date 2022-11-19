@@ -183,7 +183,7 @@ public class LendingMySQLDAO extends DAORelational implements LendingDAO {
 
 		try {
 			return LendingDTO.create(resultSet.getString("LendingId"), resultSet.getString("LendingProduct"),
-					resultSet.getInt("LendingLoanQuantity"), resultSet.getDate("LendingDate"),
+					resultSet.getInt("LendingLoanQuantity"),
 					resultSet.getString("LendingMonitorRecieve"), resultSet.getString("LendingMonitorGive"), resultSet.getString("LendingLenderName"));
 		} catch (SQLException exception) {
 			throw DataCustomException.CreateTechnicalException(
